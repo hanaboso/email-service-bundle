@@ -1,0 +1,31 @@
+{
+  "name": "pipes/email-service-bundle",
+  "license": "proprietary",
+  "version": "1.0.0",
+  "autoload": {
+    "psr-4": {
+      "EmailServiceBundle\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/"
+    }
+  },
+  "require": {
+    "php": "^7.1.3",
+    "sensio/framework-extra-bundle": "^5.1",
+    "symfony/framework-bundle": "~3.4|~4.0",
+    "symfony/monolog-bundle": "^3.1",
+    "symfony/swiftmailer-bundle": "^3.1",
+    "symfony/twig-bundle": "^4.0",
+    "symfony/yaml": "~3.4|~4.0"
+  },
+  "require-dev": {
+    "hanaboso/php-check-utils": "^1.0",
+    "phpunit/phpunit": "^7.0"
+  },
+  "config": {
+    "sort-packages": true
+  }
+}

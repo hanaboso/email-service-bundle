@@ -1,0 +1,40 @@
+version: '3'
+services:
+  app:
+    image: dkr.hanaboso.net/pipes/pipes/php-dev:dev
+    user: ${DEV_UID}:${DEV_GID}
+    volumes:
+      - ./:/srv/project
+      - ${SSH_AUTH_SOCK}:/tmp/bound-ssh-agent
+      - ${HOME}/.composer:/srv/.composer
+    environment:
+      - APP_ENV=dev
+      - DEV_UID=${DEV_UID}
+      - DEV_GID=${DEV_GID}
+      - COMPOSER_HOME=/home/dev/.composer
+      - PHP_IDE_CONFIG=${PHP_IDE_CONFIG}
+#      - SMTP_TRANSPORT=${SMTP_TRANSPORT}
+#      - SMTP_HOST=${SMTP_HOST}
+#      - SMTP_PORT=${SMTP_PORT}
+#      - SMTP_USER=${SMTP_USER}
+#      - SMTP_PASSWORD=${SMTP_PASSWORD}
+    depends_on:
+      - smtp
+    links:
+      - smtp
+
+  nginx:
+    image: nginx
+    ports:
+      - ${DEV_IP}:8000:8000
+    depends_on:
+      - app
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./:/srv/project
+
+  smtp:
+    image: mailhog/mailhog
+    ports:
+      - ${DEV_IP}:1025:1025
+      - ${DEV_IP}:8025:8025
