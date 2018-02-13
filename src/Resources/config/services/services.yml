@@ -1,0 +1,14 @@
+services:
+
+    mailer.transport.swift:
+        class: EmailServiceBundle\Transport\Impl\SwiftMailerTransport
+        arguments:
+            - '@swiftmailer.mailer.default'
+        calls:
+            - ['setLogger', ['@monolog.logger.mailer']]
+
+    mail.mailer:
+        class: EmailServiceBundle\Mailer\Mailer
+        arguments:
+            - '@mailer.transport.swift'
+            - '@templating.engine.twig'

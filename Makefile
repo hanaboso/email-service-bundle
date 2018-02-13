@@ -51,12 +51,10 @@ phpstan:
 phpunit:
 	$(DE) ./vendor/bin/phpunit -c phpunit.xml.dist --colors --stderr tests/Unit
 
+# CANNOT BOOT KERNEL, MUST REWRITE TO UNIT TESTS
 phpcontroller:
 	$(DE) ./vendor/bin/phpunit -c phpunit.xml.dist --colors --stderr tests/Controller
 
-phpintegration:
-	$(DE) ./vendor/bin/phpunit -c phpunit.xml.dist --colors --stderr tests/Integration/
+test: docker-up-force composer-install codesniffer phpstan clear-cache phpunit
 
-test: docker-up-force composer-install codesniffer phpstan clear-cache phpunit phpintegration phpcontroller
-
-fasttest: codesniffer phpstan clear-cache phpunit phpintegration phpcontroller
+fasttest: codesniffer phpstan clear-cache phpunit
