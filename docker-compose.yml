@@ -23,16 +23,6 @@ services:
     links:
       - smtp
 
-  nginx:
-    image: nginx
-    ports:
-      - ${DEV_IP}:8000:8000
-    depends_on:
-      - app
-    volumes:
-      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
-      - ./:/srv/project
-
   smtp:
     image: mailhog/mailhog
     ports:
