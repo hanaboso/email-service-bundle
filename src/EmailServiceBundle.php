@@ -12,4 +12,6 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
 class EmailServiceBundle extends Bundle
 {
 
+    public const KEY = 'email_service';
+
 }

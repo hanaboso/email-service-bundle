@@ -5,8 +5,8 @@ namespace EmailServiceBundle\Loader;
 use EmailServiceBundle\Exception\MailerException;
 use EmailServiceBundle\MessageBuilder\MessageBuilderInterface;
 use Psr\Container\ContainerExceptionInterface;
-use Psr\Container\ContainerInterface;
 use Psr\Container\NotFoundExceptionInterface;
+use Symfony\Component\DependencyInjection\ServiceLocator;
 
 /**
  * Class MailBuildersLoader
@@ -19,18 +19,18 @@ class MailBuildersLoader
     private const BUILDER_PREFIX = 'mail_builder';
 
     /**
-     * @var ContainerInterface
+     * @var ServiceLocator
      */
-    private $container;
+    private $locator;
 
     /**
      * MailBuildersLoader constructor.
      *
-     * @param ContainerInterface $container
+     * @param ServiceLocator $locator
      */
-    public function __construct(ContainerInterface $container)
+    public function __construct(ServiceLocator $locator)
     {
-        $this->container = $container;
+        $this->locator = $locator;
     }
 
     /**
@@ -43,12 +43,11 @@ class MailBuildersLoader
      */
     public function getBuilder(string $builder): MessageBuilderInterface
     {
-
         $name = sprintf('%s.%s', self::BUILDER_PREFIX, $builder);
 
-        if ($this->container->has($name)) {
+        if ($this->locator->has($name)) {
             /** @var MessageBuilderInterface $authorization */
-            $authorization = $this->container->get($name);
+            $authorization = $this->locator->get($name);
         } else {
             throw new MailerException(
                 sprintf('MailerBuilder for [%s] was not found.', $builder),
@@ -57,7 +56,6 @@ class MailBuildersLoader
         }
 
         return $authorization;
-
     }
 
 }

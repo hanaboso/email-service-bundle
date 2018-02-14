@@ -13,11 +13,11 @@ services:
       - DEV_GID=${DEV_GID}
       - COMPOSER_HOME=/home/dev/.composer
       - PHP_IDE_CONFIG=${PHP_IDE_CONFIG}
-#      - SMTP_TRANSPORT=${SMTP_TRANSPORT}
-#      - SMTP_HOST=${SMTP_HOST}
-#      - SMTP_PORT=${SMTP_PORT}
-#      - SMTP_USER=${SMTP_USER}
-#      - SMTP_PASSWORD=${SMTP_PASSWORD}
+      - SMTP_TRANSPORT=${SMTP_TRANSPORT}
+      - SMTP_HOST=${SMTP_HOST}
+      - SMTP_PORT=${SMTP_PORT}
+      - SMTP_USER=${SMTP_USER}
+      - SMTP_PASSWORD=${SMTP_PASSWORD}
     depends_on:
       - smtp
     links:
