@@ -55,7 +55,7 @@ class ApiController extends Controller
     public function sendAction(Request $request, string $handlerId): Response
     {
         try {
-            $this->mailHandler->send($handlerId, $request->request->all());
+            $this->mailHandler->send($handlerId, json_decode($request->getContent(), TRUE));
 
             return $this->getResponse(['status' => 'OK']);
         } catch (ServiceNotFoundException | MessageBuilderException | TransportException | MailerException $e) {
