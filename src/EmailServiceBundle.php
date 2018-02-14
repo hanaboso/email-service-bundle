@@ -2,8 +2,6 @@
 
 namespace EmailServiceBundle;
 
-use EmailServiceBundle\DependencyInjection\Compiler\EmailServiceCompilerPass;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 /**
@@ -13,17 +11,5 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
  */
 class EmailServiceBundle extends Bundle
 {
-
-    public const KEY = 'email_service';
-
-    /**
-     * @param ContainerBuilder $containerBuilder
-     */
-    public function build(ContainerBuilder $containerBuilder): void
-    {
-        parent::build($containerBuilder);
-
-        $containerBuilder->addCompilerPass(new EmailServiceCompilerPass());
-    }
 
 }
