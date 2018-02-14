@@ -19,6 +19,7 @@ class Mailer
      * @var TransportInterface
      */
     private $transport;
+
     /**
      * @var null|EngineInterface
      */
