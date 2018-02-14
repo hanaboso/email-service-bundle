@@ -28,11 +28,11 @@ services:
     # please note that last definitions always *replace* previous ones
 
     app.message_builder_locator:
-            class: Symfony\Component\DependencyInjection\ServiceLocator
-            tags: ['container.service_locator']
-            arguments:
-                -
-                    mail_builder.generic: '@EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder'
+        class: Symfony\Component\DependencyInjection\ServiceLocator
+        tags: ['container.service_locator']
+        arguments:
+            -
+                mail_builder.generic: '@EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder'
 
-        EmailServiceBundle\Loader\MailBuildersLoader:
-            arguments: ['@app.message_builder_locator']
+    EmailServiceBundle\Loader\MailBuildersLoader:
+        arguments: ['@app.message_builder_locator']

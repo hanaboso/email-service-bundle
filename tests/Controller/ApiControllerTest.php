@@ -2,16 +2,18 @@
 
 namespace Tests\Controller;
 
-use EmailServiceBundle\Exception\MailerException;
-use EmailServiceBundle\MessageBuilder\MessageBuilderException;
-use Tests\ControllerTestCaseAbstract;
+use EmailServiceBundle\Controller\ApiController;
+use EmailServiceBundle\Handler\MailHandler;
+use PHPUnit\Framework\MockObject\MockObject;
+use PHPUnit\Framework\TestCase;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Class ApiControllerTest
  *
  * @package Tests\Controller
  */
-class ApiControllerTest extends ControllerTestCaseAbstract
+class ApiControllerTest extends TestCase
 {
 
     /**
@@ -19,46 +21,15 @@ class ApiControllerTest extends ControllerTestCaseAbstract
      */
     public function testSend(): void
     {
-        $response = $this->sendPost('/mailer/generic/send', [
-            'from'    => 'email@example.com',
-            'to'      => 'email@example.com',
-            'subject' => 'Subject',
-            'content' => 'Content',
-        ]);
+        /** @var MailHandler|MockObject $mailHandler */
+        $mailHandler = $this->createMock(MailHandler::class);
+        $controller  = new ApiController($mailHandler);
+        $request     = new Request([], [], [], [], [], [], '{"abc": "def"}');
 
-        $this->assertEquals(200, $response->status);
-        $this->assertEquals('OK', $response->content->status);
-    }
+        $response = $controller->sendAction($request, 'generic');
 
-    /**
-     *
-     */
-    public function testSendInvalidData(): void
-    {
-        $response = $this->sendPost('/mailer/generic/send', [
-            'from'    => '',
-            'to'      => '',
-            'subject' => '',
-            'content' => '',
-        ]);
-        $content = $response->content;
-
-        $this->assertEquals(500, $response->status);
-        $this->assertEquals(MessageBuilderException::class, $content->type);
-        $this->assertEquals(2001, $content->error_code);
-    }
-
-    /**
-     *
-     */
-    public function testSendNotFoundMailer(): void
-    {
-        $response = $this->sendPost('/mailer/unknown/send', []);
-        $content = $response->content;
-
-        $this->assertEquals(500, $response->status);
-        $this->assertEquals(MailerException::class, $content->type);
-        $this->assertEquals(2001, $content->error_code);
+        $this->assertEquals(200, $response->getStatusCode());
+        $this->assertEquals('{"status":"OK"}', $response->getContent());
     }
 
     /**
@@ -66,46 +37,15 @@ class ApiControllerTest extends ControllerTestCaseAbstract
      */
     public function testSendTest(): void
     {
-        $response = $this->sendPost('/mailer/generic/send/test', [
-            'from'    => 'email@example.com',
-            'to'      => 'email@example.com',
-            'subject' => 'Subject',
-            'content' => 'Content',
-        ]);
+        /** @var MailHandler|MockObject $mailHandler */
+        $mailHandler = $this->createMock(MailHandler::class);
+        $controller  = new ApiController($mailHandler);
+        $request     = new Request([], [], [], [], [], [], '{"abc": "def"}');
 
-        $this->assertEquals(200, $response->status);
-        $this->assertEquals('OK', $response->content->status);
-    }
+        $response = $controller->sendTestAction($request, 'generic');
 
-    /**
-     *
-     */
-    public function testSendTestInvalidData(): void
-    {
-        $response = $this->sendPost('/mailer/generic/send', [
-            'from'    => '',
-            'to'      => '',
-            'subject' => '',
-            'content' => '',
-        ]);
-        $content = $response->content;
-
-        $this->assertEquals(500, $response->status);
-        $this->assertEquals(MessageBuilderException::class, $content->type);
-        $this->assertEquals(2001, $content->error_code);
-    }
-
-    /**
-     *
-     */
-    public function testSendTestNotFoundMailer(): void
-    {
-        $response = $this->sendPost('/mailer/unknown/send', []);
-        $content = $response->content;
-
-        $this->assertEquals(500, $response->status);
-        $this->assertEquals(MailerException::class, $content->type);
-        $this->assertEquals(2001, $content->error_code);
+        $this->assertEquals(200, $response->getStatusCode());
+        $this->assertEquals('{"status":"OK"}', $response->getContent());
     }
 
 }
