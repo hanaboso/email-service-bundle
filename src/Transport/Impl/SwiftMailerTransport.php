@@ -6,6 +6,7 @@ use EmailServiceBundle\Transport\TransportException;
 use EmailServiceBundle\Transport\TransportInterface;
 use EmailServiceBundle\Transport\TransportMessageInterface;
 use Psr\Log\LoggerInterface;
+use Psr\Log\NullLogger;
 use Swift_Attachment;
 use Swift_Mailer;
 use Swift_Message;
@@ -37,6 +38,7 @@ class SwiftMailerTransport implements TransportInterface
     public function __construct(Swift_Mailer $mailer)
     {
         $this->mailer = $mailer;
+        $this->logger = new NullLogger();
     }
 
     /**
