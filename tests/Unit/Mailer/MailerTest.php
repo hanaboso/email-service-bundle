@@ -5,6 +5,7 @@ namespace Tests\Unit\Mailer;
 use EmailServiceBundle\Mailer\Mailer;
 use EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder;
 use EmailServiceBundle\Transport\TransportInterface;
+use Exception;
 use PHPUnit\Framework\TestCase;
 use PHPUnit_Framework_MockObject_MockObject;
 
@@ -13,11 +14,12 @@ use PHPUnit_Framework_MockObject_MockObject;
  *
  * @package Tests\Mailer
  */
-class MailerTest extends TestCase
+final class MailerTest extends TestCase
 {
 
     /**
      * @covers Mailer::renderAndSend()
+     * @throws Exception
      */
     public function testSend(): void
     {
@@ -41,6 +43,7 @@ class MailerTest extends TestCase
 
     /**
      * @covers Mailer::renderAndSendTest()
+     * @throws Exception
      */
     public function testSendTest(): void
     {

@@ -6,6 +6,7 @@ use EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder\GenericContentA
 use EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder\GenericFsAttachment;
 use EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder\GenericTransportMessage;
 use EmailServiceBundle\Transport\Impl\SwiftMailerTransport;
+use Exception;
 use Monolog\Logger;
 use PHPUnit\Framework\TestCase;
 use PHPUnit_Framework_MockObject_MockObject;
@@ -16,11 +17,11 @@ use Swift_Mailer;
  *
  * @package Tests\Unit\Transport\Impl
  */
-class SwiftMailerTransportTest extends TestCase
+final class SwiftMailerTransportTest extends TestCase
 {
 
     /**
-     *
+     * @throws Exception
      */
     public function testSend(): void
     {

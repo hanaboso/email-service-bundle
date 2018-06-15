@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @package Tests\DefaultValues
  */
-class DefaultValuesTest extends TestCase
+final class DefaultValuesTest extends TestCase
 {
 
     /**
@@ -46,7 +46,7 @@ class DefaultValuesTest extends TestCase
      */
     public function testFilledConstructor(array $data, string $module, array $result): void
     {
-        list($from, $subject, $to, $bcc) = $data;
+        [$from, $subject, $to, $bcc] = $data;
         $defaults = new DefaultValues($from, $subject, $to, $bcc);
 
         $this->assertEquals($result, $defaults->getDefaults($module));

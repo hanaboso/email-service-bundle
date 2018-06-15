@@ -4,6 +4,7 @@ namespace Tests\Controller;
 
 use EmailServiceBundle\Controller\ApiController;
 use EmailServiceBundle\Handler\MailHandler;
+use Exception;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\Request;
@@ -13,11 +14,11 @@ use Symfony\Component\HttpFoundation\Request;
  *
  * @package Tests\Controller
  */
-class ApiControllerTest extends TestCase
+final class ApiControllerTest extends TestCase
 {
 
     /**
-     *
+     * @throws Exception
      */
     public function testSend(): void
     {
@@ -33,7 +34,7 @@ class ApiControllerTest extends TestCase
     }
 
     /**
-     *
+     * @throws Exception
      */
     public function testSendTest(): void
     {

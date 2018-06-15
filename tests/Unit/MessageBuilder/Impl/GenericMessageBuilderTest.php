@@ -5,6 +5,7 @@ namespace Tests\Unit\MessageBuilder\Impl;
 use EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder;
 use EmailServiceBundle\MessageBuilder\MessageBuilderException;
 use EmailServiceBundle\Transport\TransportMessageInterface;
+use Exception;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -12,7 +13,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @package Tests\Unit\MessageBuilder\Impl
  */
-class GenericMessageBuilderTest extends TestCase
+final class GenericMessageBuilderTest extends TestCase
 {
 
     /**
@@ -46,7 +47,7 @@ class GenericMessageBuilderTest extends TestCase
     }
 
     /**
-     *
+     * @throws Exception
      */
     public function testBuildTransportMessage(): void
     {
@@ -64,7 +65,7 @@ class GenericMessageBuilderTest extends TestCase
     }
 
     /**
-     *
+     * @throws Exception
      */
     public function testBuildTransportMessageFails(): void
     {
