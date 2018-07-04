@@ -5,8 +5,6 @@ namespace EmailServiceBundle\Handler;
 use EmailServiceBundle\Exception\MailerException;
 use EmailServiceBundle\Loader\MailBuildersLoader;
 use EmailServiceBundle\Mailer\Mailer;
-use Psr\Container\ContainerExceptionInterface;
-use Psr\Container\NotFoundExceptionInterface;
 
 /**
  * Class MailHandler
@@ -43,8 +41,6 @@ class MailHandler
      * @param array  $data
      *
      * @throws MailerException
-     * @throws ContainerExceptionInterface
-     * @throws NotFoundExceptionInterface
      */
     public function send(string $builderId, array $data): void
     {
@@ -57,9 +53,7 @@ class MailHandler
      * @param string $builderId
      * @param array  $data
      *
-     * @throws ContainerExceptionInterface
      * @throws MailerException
-     * @throws NotFoundExceptionInterface
      */
     public function testSend(string $builderId, array $data): void
     {

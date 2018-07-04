@@ -51,7 +51,12 @@ class Mailer
                     MailerException::MISSING_TEMPLATE_ENGINE
                 );
             }
-            $message->setContent($this->templateEngine->render($message->getTemplate(), $message->getDataContent()));
+            $message->setContent(
+                $this->templateEngine->render(
+                    (string) $message->getTemplate(),
+                    $message->getDataContent()
+                )
+            );
         }
         $this->transport->send($message);
     }

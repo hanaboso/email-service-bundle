@@ -4,17 +4,13 @@ namespace EmailServiceBundle\Controller;
 
 use EmailServiceBundle\Exception\MailerException;
 use EmailServiceBundle\Handler\MailHandler;
-use EmailServiceBundle\MessageBuilder\MessageBuilderException;
 use EmailServiceBundle\Traits\ControllerTrait;
-use EmailServiceBundle\Transport\TransportException;
-use Psr\Container\ContainerExceptionInterface;
-use Psr\Container\NotFoundExceptionInterface;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Throwable;
 
 /**
  * Class ApiController
@@ -42,23 +38,20 @@ class ApiController extends Controller
     }
 
     /**
-     * @Route("/mailer/{handlerId}/send", defaults={}, requirements={"_format"="json|xml"})
-     * @Method({"POST", "OPTIONS"})
+     * @Route("/mailer/{handlerId}/send", defaults={}, requirements={"_format"="json|xml"}, methods={"POST", "OPTIONS"})
      *
      * @param Request $request
      * @param string  $handlerId
      *
      * @return Response
-     * @throws ContainerExceptionInterface
-     * @throws NotFoundExceptionInterface
      */
     public function sendAction(Request $request, string $handlerId): Response
     {
         try {
-            $this->mailHandler->send($handlerId, json_decode($request->getContent(), TRUE));
+            $this->mailHandler->send($handlerId, json_decode((string) $request->getContent(), TRUE));
 
             return $this->getResponse(['status' => 'OK']);
-        } catch (ServiceNotFoundException | MessageBuilderException | TransportException | MailerException $e) {
+        } catch (ServiceNotFoundException | MailerException | Throwable $e) {
             return $this->getErrorResponse($e);
         }
     }
@@ -70,16 +63,14 @@ class ApiController extends Controller
      * @param string  $handlerId
      *
      * @return Response
-     * @throws ContainerExceptionInterface
-     * @throws NotFoundExceptionInterface
      */
     public function sendTestAction(Request $request, string $handlerId): Response
     {
         try {
-            $this->mailHandler->testSend($handlerId, json_decode($request->getContent(), TRUE));
+            $this->mailHandler->testSend($handlerId, json_decode((string) $request->getContent(), TRUE));
 
             return $this->getResponse(['status' => 'OK']);
-        } catch (ServiceNotFoundException | MessageBuilderException | TransportException | MailerException $e) {
+        } catch (ServiceNotFoundException | MailerException| Throwable $e) {
             return $this->getErrorResponse($e);
         }
     }

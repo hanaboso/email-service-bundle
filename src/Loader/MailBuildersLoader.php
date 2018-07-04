@@ -4,8 +4,6 @@ namespace EmailServiceBundle\Loader;
 
 use EmailServiceBundle\Exception\MailerException;
 use EmailServiceBundle\MessageBuilder\MessageBuilderInterface;
-use Psr\Container\ContainerExceptionInterface;
-use Psr\Container\NotFoundExceptionInterface;
 use Symfony\Component\DependencyInjection\ServiceLocator;
 
 /**
@@ -38,8 +36,6 @@ class MailBuildersLoader
      *
      * @return MessageBuilderInterface
      * @throws MailerException
-     * @throws ContainerExceptionInterface
-     * @throws NotFoundExceptionInterface
      */
     public function getBuilder(string $builder): MessageBuilderInterface
     {
