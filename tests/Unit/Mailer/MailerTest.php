@@ -6,13 +6,13 @@ use EmailServiceBundle\Mailer\Mailer;
 use EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder;
 use EmailServiceBundle\Transport\TransportInterface;
 use Exception;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
-use PHPUnit_Framework_MockObject_MockObject;
 
 /**
  * Class MailerTest
  *
- * @package Tests\Mailer
+ * @package Tests\Unit\Mailer
  */
 final class MailerTest extends TestCase
 {
@@ -23,7 +23,7 @@ final class MailerTest extends TestCase
      */
     public function testSend(): void
     {
-        /** @var TransportInterface|PHPUnit_Framework_MockObject_MockObject $transport */
+        /** @var TransportInterface|MockObject $transport */
         $transport = $this->createPartialMock(TransportInterface::class, ['send', 'setLogger']);
         $transport->method('send')->willReturn(1);
         $transport->method('setLogger')->willReturn(1);
@@ -47,7 +47,7 @@ final class MailerTest extends TestCase
      */
     public function testSendTest(): void
     {
-        /** @var TransportInterface|PHPUnit_Framework_MockObject_MockObject $transport */
+        /** @var TransportInterface|MockObject $transport */
         $transport = $this->createPartialMock(TransportInterface::class, ['send', 'setLogger']);
         $transport->method('send')->willReturn(1);
         $transport->method('setLogger')->willReturn(1);

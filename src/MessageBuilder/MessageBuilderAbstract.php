@@ -5,7 +5,7 @@ namespace EmailServiceBundle\MessageBuilder;
 /**
  * Class MessageBuilderAbstract
  *
- * @package App\MessageBuilder
+ * @package EmailServiceBundle\MessageBuilder
  */
 abstract class MessageBuilderAbstract implements MessageBuilderInterface
 {

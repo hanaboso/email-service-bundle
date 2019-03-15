@@ -5,7 +5,7 @@ namespace EmailServiceBundle\Controller;
 use EmailServiceBundle\Exception\MailerException;
 use EmailServiceBundle\Handler\MailHandler;
 use EmailServiceBundle\Traits\ControllerTrait;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,9 +15,9 @@ use Throwable;
 /**
  * Class ApiController
  *
- * @package App\Controller
+ * @package EmailServiceBundle\Controller
  */
-class ApiController extends Controller
+class ApiController extends AbstractController
 {
 
     use ControllerTrait;

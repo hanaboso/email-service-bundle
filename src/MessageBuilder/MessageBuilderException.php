@@ -7,7 +7,7 @@ use EmailServiceBundle\Exception\PipesFrameworkException;
 /**
  * Class MessageBuilderException
  *
- * @package App\MessageBuilder
+ * @package EmailServiceBundle\MessageBuilder
  */
 final class MessageBuilderException extends PipesFrameworkException
 {

@@ -8,9 +8,9 @@ use EmailServiceBundle\MessageBuilder\MessageBuilderException;
 use EmailServiceBundle\Transport\TransportMessageInterface;
 
 /**
- * Class GenericBuilderHandler
+ * Class GenericMessageBuilder
  *
- * @package App\MessageBuilder\Impl
+ * @package EmailServiceBundle\MessageBuilder\Impl
  */
 class GenericMessageBuilder extends MessageBuilderAbstract
 {

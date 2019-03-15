@@ -9,7 +9,7 @@ use Exception;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Class GenericMessageHandlerTest
+ * Class GenericMessageBuilderTest
  *
  * @package Tests\Unit\MessageBuilder\Impl
  */

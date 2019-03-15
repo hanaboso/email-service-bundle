@@ -8,7 +8,7 @@ use EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder\GenericFsAttach
 /**
  * Interface TransportMessageInterface
  *
- * @package App\Transport
+ * @package EmailServiceBundle\Transport
  */
 interface TransportMessageInterface
 {

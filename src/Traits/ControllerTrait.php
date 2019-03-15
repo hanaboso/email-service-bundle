@@ -9,7 +9,7 @@ use Throwable;
 /**
  * Trait ControllerTrait
  *
- * @package App\Traits
+ * @package EmailServiceBundle\Traits
  */
 trait ControllerTrait
 {

@@ -5,7 +5,7 @@ namespace EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder;
 /**
  * Class GenericFsAttachment
  *
- * @package App\MessageBuilder\Impl\GenericMessageBuilder
+ * @package EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder
  */
 class GenericFsAttachment extends GenericAttachmentAbstract
 {

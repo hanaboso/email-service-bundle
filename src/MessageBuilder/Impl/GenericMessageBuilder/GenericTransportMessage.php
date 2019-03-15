@@ -7,7 +7,7 @@ use EmailServiceBundle\Transport\TransportMessageInterface;
 /**
  * Class GenericTransportMessage
  *
- * @package App\MessageBuilder\Impl\GenericMessageBuilder
+ * @package EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder
  */
 class GenericTransportMessage implements TransportMessageInterface
 {
@@ -74,8 +74,9 @@ class GenericTransportMessage implements TransportMessageInterface
         $this->subject     = $subject;
         $this->dataContent = $dataContent;
         $this->template    = $template;
-        if (!$template)
+        if (!$template) {
             $this->content = $dataContent;
+        }
     }
 
     /**

@@ -5,7 +5,7 @@ namespace EmailServiceBundle\Exception;
 /**
  * Class MailerException
  *
- * @package App\Exception
+ * @package EmailServiceBundle\Exception
  */
 final class MailerException extends PipesFrameworkException
 {

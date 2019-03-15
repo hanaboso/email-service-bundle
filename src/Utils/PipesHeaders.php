@@ -5,7 +5,7 @@ namespace EmailServiceBundle\Utils;
 /**
  * Class PipesHeaders
  *
- * @package App\Utils
+ * @package EmailServiceBundle\Utils
  */
 class PipesHeaders
 {

@@ -7,7 +7,7 @@ use EmailServiceBundle\Transport\TransportMessageInterface;
 /**
  * Interface MessageBuilderInterface
  *
- * @package App\MessageBuilder
+ * @package EmailServiceBundle\MessageBuilder
  */
 interface MessageBuilderInterface
 {

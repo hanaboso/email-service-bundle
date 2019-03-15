@@ -5,7 +5,7 @@ namespace EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder;
 /**
  * Class GenericAttachmentAbstract
  *
- * @package App\MessageBuilder\Impl\GenericMessageBuilder
+ * @package EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder
  */
 abstract class GenericAttachmentAbstract
 {
@@ -21,10 +21,10 @@ abstract class GenericAttachmentAbstract
     private $filename;
 
     /**
-     * GenericContentAttachment constructor.
+     * GenericAttachmentAbstract constructor.
      *
      * @param string      $contentType
-     * @param null|string $filename
+     * @param string|null $filename
      */
     public function __construct(string $contentType, ?string $filename = NULL)
     {

@@ -7,7 +7,7 @@ use Exception;
 /**
  * Class PipesFrameworkException
  *
- * @package App\PipesFrameworkException
+ * @package EmailServiceBundle\Exception
  */
 class PipesFrameworkException extends Exception
 {

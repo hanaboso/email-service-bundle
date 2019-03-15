@@ -15,7 +15,7 @@ use Throwable;
 /**
  * Class SwiftMailerTransport
  *
- * @package App\Transport\Impl
+ * @package EmailServiceBundle\Transport\Impl
  */
 class SwiftMailerTransport implements TransportInterface
 {

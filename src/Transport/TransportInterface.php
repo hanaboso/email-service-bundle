@@ -7,7 +7,7 @@ use Psr\Log\LoggerAwareInterface;
 /**
  * Interface TransportInterface
  *
- * @package App\Transport
+ * @package EmailServiceBundle\Transport
  */
 interface TransportInterface extends LoggerAwareInterface
 {

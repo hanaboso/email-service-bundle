@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 /**
  * Class DefaultValuesTest
  *
- * @package Tests\DefaultValues
+ * @package Tests\Unit\DefaultValues
  */
 final class DefaultValuesTest extends TestCase
 {

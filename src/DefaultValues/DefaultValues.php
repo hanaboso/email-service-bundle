@@ -5,7 +5,7 @@ namespace EmailServiceBundle\DefaultValues;
 /**
  * Class DefaultValues
  *
- * @package App\DefaultValues
+ * @package EmailServiceBundle\DefaultValues
  */
 class DefaultValues
 {

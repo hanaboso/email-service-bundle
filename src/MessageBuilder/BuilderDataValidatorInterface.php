@@ -5,7 +5,7 @@ namespace EmailServiceBundle\MessageBuilder;
 /**
  * Interface BuilderDataValidatorInterface
  *
- * @package App\MessageBuilder
+ * @package EmailServiceBundle\MessageBuilder
  */
 interface BuilderDataValidatorInterface
 {

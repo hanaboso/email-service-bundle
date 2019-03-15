@@ -9,7 +9,7 @@ use EmailServiceBundle\Mailer\Mailer;
 /**
  * Class MailHandler
  *
- * @package App\Handler
+ * @package EmailServiceBundle\Handler
  */
 class MailHandler
 {

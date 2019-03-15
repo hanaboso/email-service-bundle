@@ -9,7 +9,7 @@ use Symfony\Component\DependencyInjection\ServiceLocator;
 /**
  * Class MailBuildersLoader
  *
- * @package App\Loader
+ * @package EmailServiceBundle\Loader
  */
 class MailBuildersLoader
 {

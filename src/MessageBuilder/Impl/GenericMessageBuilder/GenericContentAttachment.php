@@ -5,7 +5,7 @@ namespace EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder;
 /**
  * Class GenericContentAttachment
  *
- * @package App\MessageBuilder\Impl\GenericMessageBuilder
+ * @package EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder
  */
 class GenericContentAttachment extends GenericAttachmentAbstract
 {

@@ -7,7 +7,7 @@ use EmailServiceBundle\Exception\PipesFrameworkException;
 /**
  * Class TransportException
  *
- * @package App\Transport
+ * @package EmailServiceBundle\Transport
  */
 class TransportException extends PipesFrameworkException
 {

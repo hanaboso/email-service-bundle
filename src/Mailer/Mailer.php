@@ -10,7 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
 /**
  * Class Mailer
  *
- * @package App\Mailer
+ * @package EmailServiceBundle\Mailer
  */
 class Mailer
 {

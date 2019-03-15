@@ -8,8 +8,8 @@ use EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder\GenericTranspor
 use EmailServiceBundle\Transport\Impl\SwiftMailerTransport;
 use Exception;
 use Monolog\Logger;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
-use PHPUnit_Framework_MockObject_MockObject;
 use Swift_Mailer;
 
 /**
@@ -25,11 +25,11 @@ final class SwiftMailerTransportTest extends TestCase
      */
     public function testSend(): void
     {
-        /** @var PHPUnit_Framework_MockObject_MockObject|Swift_Mailer $fakeMailer */
+        /** @var MockObject|Swift_Mailer $fakeMailer */
         $fakeMailer = $this->createPartialMock(Swift_Mailer::class, ['send']);
         $fakeMailer->method('send')->willReturn(1);
 
-        /** @var PHPUnit_Framework_MockObject_MockObject|Logger $logger */
+        /** @var MockObject|Logger $logger */
         $logger = $this->createPartialMock(Logger::class, ['info']);
         $logger->method('info')->willReturn(1);
 

@@ -8,7 +8,7 @@ use Throwable;
 /**
  * Class ControllerUtils
  *
- * @package App\Utils
+ * @package EmailServiceBundle\Utils
  */
 class ControllerUtils
 {

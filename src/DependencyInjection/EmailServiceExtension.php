@@ -35,6 +35,8 @@ class EmailServiceExtension extends Extension
      */
     public function load(array $configs, ContainerBuilder $container): void
     {
+        $configs;
+
         $loader = new YamlFileLoader(
             $container,
             new FileLocator([
