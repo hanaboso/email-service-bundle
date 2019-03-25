@@ -2,7 +2,7 @@
 
 namespace EmailServiceBundle\Utils;
 
-use EmailServiceBundle\Exception\PipesFrameworkException;
+use Hanaboso\CommonsBundle\Exception\PipesFrameworkException;
 use Throwable;
 
 /**

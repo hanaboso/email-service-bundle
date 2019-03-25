@@ -2,14 +2,14 @@
 
 namespace EmailServiceBundle\MessageBuilder;
 
-use EmailServiceBundle\Exception\PipesFrameworkException;
+use Hanaboso\CommonsBundle\Exception\PipesFrameworkExceptionAbstract;
 
 /**
  * Class MessageBuilderException
  *
  * @package EmailServiceBundle\MessageBuilder
  */
-final class MessageBuilderException extends PipesFrameworkException
+final class MessageBuilderException extends PipesFrameworkExceptionAbstract
 {
 
     protected const OFFSET = 500;
