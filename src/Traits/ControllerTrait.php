@@ -2,7 +2,6 @@
 
 namespace EmailServiceBundle\Traits;
 
-use EmailServiceBundle\Utils\ControllerUtils;
 use Symfony\Component\HttpFoundation\Response;
 use Throwable;
 
@@ -41,9 +40,26 @@ trait ControllerTrait
      */
     protected function getErrorResponse(Throwable $e, int $code = 500, array $headers = []): Response
     {
-        $msg = ControllerUtils::createExceptionData($e);
+        $msg = $this->createExceptionData($e);
 
         return new Response($msg, $code, $headers);
+    }
+
+    /**
+     * @param Throwable $exception
+     *
+     * @return string|array
+     */
+    protected function createExceptionData(Throwable $exception)
+    {
+        $output = [
+            'status'     => 'ERROR',
+            'error_code' => 2001,
+            'type'       => get_class($exception),
+            'message'    => $exception->getMessage(),
+        ];
+
+        return (string) json_encode($output);
     }
 
 }

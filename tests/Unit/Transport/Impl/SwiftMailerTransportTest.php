@@ -43,6 +43,7 @@ final class SwiftMailerTransportTest extends TestCase
         $mailer = new SwiftMailerTransport($fakeMailer);
         $mailer->setLogger($logger);
         $mailer->send($message);
+        self::assertTrue(TRUE);
     }
 
 }

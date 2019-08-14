@@ -36,9 +36,9 @@ final class MailerTest extends TestCase
         ];
 
         $handler = new GenericMessageBuilder();
-
-        $mailer = new Mailer($transport, NULL);
+        $mailer  = new Mailer($transport, NULL);
         $mailer->renderAndSend($handler->buildTransportMessage($data));
+        self::assertTrue(TRUE);
     }
 
     /**
@@ -60,9 +60,9 @@ final class MailerTest extends TestCase
         ];
 
         $handler = new GenericMessageBuilder();
-
-        $mailer = new Mailer($transport, NULL);
+        $mailer  = new Mailer($transport, NULL);
         $mailer->renderAndSendTest($handler->buildTransportMessage($data));
+        self::assertTrue(TRUE);
     }
 
 }

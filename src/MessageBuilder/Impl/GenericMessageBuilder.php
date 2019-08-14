@@ -25,7 +25,7 @@ class GenericMessageBuilder extends MessageBuilderAbstract
     {
         if (!self::isValid($data)) {
             throw new MessageBuilderException(
-                'Invalid data. || ' . json_encode($data),
+                sprintf('Invalid data. || %s', json_encode($data)),
                 MessageBuilderException::INVALID_DATA
             );
         }

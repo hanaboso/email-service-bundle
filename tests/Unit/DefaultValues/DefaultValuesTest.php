@@ -61,13 +61,13 @@ final class DefaultValuesTest extends TestCase
             '{"to":"user2@hanaboso.com","subject":"Activate user account","content":"","dataContent":{"link":"127.0.0.4:8000\/user\/5a78840bd5a1d\/activate"},"template":null,"from":""}',
             TRUE
         );
-        $defaults = new DefaultValues(['aa' => 'mejl'], [], [], []);
+        $defaults = new DefaultValues(['aa' => 'e-mail'], [], [], []);
         $default  = $defaults->getDefaults('aa');
 
         $defaultData = DefaultValues::handleDefaults($data, $default, ['from']);
 
         self::assertNotEmpty($defaultData['from']);
-        self::assertEquals($defaultData['from'], 'mejl');
+        self::assertEquals($defaultData['from'], 'e-mail');
     }
 
     /**

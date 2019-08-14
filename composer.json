@@ -12,11 +12,11 @@
     }
   },
   "require": {
-    "php": "^7.2",
+    "php": "^7.3",
     "ext-json": "*",
-    "symfony/monolog-bundle": "^3.3",
+    "symfony/monolog-bundle": "^3.4",
     "symfony/swiftmailer-bundle": "^3.2",
-    "symfony/symfony": "^4.2"
+    "symfony/symfony": "^4.3"
   },
   "require-dev": {
     "hanaboso/php-check-utils": "^1.0"
