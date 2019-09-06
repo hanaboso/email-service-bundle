@@ -14,9 +14,9 @@
   "require": {
     "php": "^7.3",
     "ext-json": "*",
+    "hanaboso/commons-bundle": "^1.1",
     "symfony/monolog-bundle": "^3.4",
-    "symfony/swiftmailer-bundle": "^3.2",
-    "symfony/symfony": "^4.3"
+    "symfony/swiftmailer-bundle": "^3.2"
   },
   "require-dev": {
     "hanaboso/php-check-utils": "^1.0"

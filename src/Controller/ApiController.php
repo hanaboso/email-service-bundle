@@ -70,7 +70,7 @@ class ApiController extends AbstractController
             $this->mailHandler->testSend($handlerId, json_decode((string) $request->getContent(), TRUE));
 
             return $this->getResponse(['status' => 'OK']);
-        } catch (ServiceNotFoundException | MailerException| Throwable $e) {
+        } catch (ServiceNotFoundException | MailerException | Throwable $e) {
             return $this->getErrorResponse($e);
         }
     }

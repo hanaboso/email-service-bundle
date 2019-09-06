@@ -2,12 +2,14 @@
 
 namespace EmailServiceBundle\Exception;
 
+use Hanaboso\CommonsBundle\Exception\PipesFrameworkExceptionAbstract;
+
 /**
  * Class MailerException
  *
  * @package EmailServiceBundle\Exception
  */
-final class MailerException extends PipesFrameworkException
+final class MailerException extends PipesFrameworkExceptionAbstract
 {
 
     protected const OFFSET = 700;

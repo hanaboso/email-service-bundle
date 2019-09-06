@@ -2,7 +2,6 @@
 
 DC=docker-compose
 DE=docker-compose exec -T app
-DEC=docker-compose exec -T app composer
 
 .env:
 	@if ! [ -f .env ]; then \
@@ -18,6 +17,10 @@ docker-up-force: .env
 
 docker-down-clean: .env
 	$(DC) down -v
+
+docker-compose.ci.yml:
+	# Comment out any port forwarding
+	sed -r 's/^(\s+ports:)$$/#\1/g; s/^(\s+- \$$\{DEV_IP\}.*)$$/#\1/g' docker-compose.yml > docker-compose.ci.yml
 
 # Composer
 composer-install:

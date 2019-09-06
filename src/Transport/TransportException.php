@@ -2,14 +2,14 @@
 
 namespace EmailServiceBundle\Transport;
 
-use EmailServiceBundle\Exception\PipesFrameworkException;
+use Hanaboso\CommonsBundle\Exception\PipesFrameworkExceptionAbstract;
 
 /**
  * Class TransportException
  *
  * @package EmailServiceBundle\Transport
  */
-class TransportException extends PipesFrameworkException
+class TransportException extends PipesFrameworkExceptionAbstract
 {
 
     protected const OFFSET = 600;

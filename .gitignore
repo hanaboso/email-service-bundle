@@ -4,4 +4,4 @@
 # Exclude temp files
 .env
 /vendor
-/nginx
+docker-compose.ci.yml
