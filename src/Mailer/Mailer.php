@@ -64,7 +64,7 @@ class Mailer
             } catch (Error $e) {
                 throw new MailerException(
                     $e->getMessage(),
-                    MailerException::MISSING_TEMPLATE_ENGINE,
+                    MailerException::TEMPLATE_ENGINE_ERROR,
                     $e
                 );
             }
