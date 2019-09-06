@@ -14,5 +14,6 @@ final class MailerException extends PipesFrameworkException
 
     public const MISSING_TEMPLATE_ENGINE   = self::OFFSET + 1;
     public const BUILDER_SERVICE_NOT_FOUND = self::OFFSET + 2;
+    public const TEMPLATE_ENGINE_ERROR     = self::OFFSET + 3;
 
 }

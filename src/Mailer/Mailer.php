@@ -5,7 +5,8 @@ namespace EmailServiceBundle\Mailer;
 use EmailServiceBundle\Exception\MailerException;
 use EmailServiceBundle\Transport\TransportInterface;
 use EmailServiceBundle\Transport\TransportMessageInterface;
-use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
+use Twig\Environment;
+use Twig\Error\Error;
 
 /**
  * Class Mailer
@@ -21,20 +22,20 @@ class Mailer
     private $transport;
 
     /**
-     * @var null|EngineInterface
+     * @var Environment|null
      */
-    private $templateEngine;
+    private $engine;
 
     /**
      * Mailer constructor.
      *
-     * @param TransportInterface   $transport
-     * @param EngineInterface|null $templateEngine
+     * @param TransportInterface $transport
+     * @param Environment|null   $engine
      */
-    public function __construct(TransportInterface $transport, ?EngineInterface $templateEngine = NULL)
+    public function __construct(TransportInterface $transport, ?Environment $engine = NULL)
     {
-        $this->transport      = $transport;
-        $this->templateEngine = $templateEngine;
+        $this->transport = $transport;
+        $this->engine    = $engine;
     }
 
     /**
@@ -45,20 +46,29 @@ class Mailer
     public function renderAndSend(TransportMessageInterface $message): void
     {
         if ($message->getTemplate()) {
-            if (!$this->templateEngine) {
+            if (!$this->engine) {
                 throw new MailerException(
                     'Missing template engine. Can not render message.',
                     MailerException::MISSING_TEMPLATE_ENGINE
                 );
             }
-            $message->setContent(
-                $this->templateEngine->render(
-                    (string) $message->getTemplate(),
-                    $message->getDataContent()
-                )
-            );
+
+            try {
+                $message->setContent(
+                    $this->engine->render(
+                        (string) $message->getTemplate(),
+                        $message->getDataContent()
+                    )
+                );
+                $this->transport->send($message);
+            } catch (Error $e) {
+                throw new MailerException(
+                    $e->getMessage(),
+                    MailerException::MISSING_TEMPLATE_ENGINE,
+                    $e
+                );
+            }
         }
-        $this->transport->send($message);
     }
 
     /**
@@ -70,7 +80,7 @@ class Mailer
     public function renderAndSendTest(TransportMessageInterface $message): bool
     {
         if ($message->getTemplate()) {
-            if (!$this->templateEngine) {
+            if (!$this->engine) {
                 throw new MailerException(
                     'Missing template engine. Can not render message.',
                     MailerException::MISSING_TEMPLATE_ENGINE
