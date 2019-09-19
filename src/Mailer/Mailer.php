@@ -5,8 +5,8 @@ namespace EmailServiceBundle\Mailer;
 use EmailServiceBundle\Exception\MailerException;
 use EmailServiceBundle\Transport\TransportInterface;
 use EmailServiceBundle\Transport\TransportMessageInterface;
+use Throwable;
 use Twig\Environment;
-use Twig\Error\Error;
 
 /**
  * Class Mailer
@@ -61,7 +61,17 @@ class Mailer
                     )
                 );
                 $this->transport->send($message);
-            } catch (Error $e) {
+            } catch (Throwable $e) {
+                throw new MailerException(
+                    $e->getMessage(),
+                    MailerException::TEMPLATE_ENGINE_ERROR,
+                    $e
+                );
+            }
+        } else {
+            try {
+                $this->transport->send($message);
+            } catch (Throwable $e) {
                 throw new MailerException(
                     $e->getMessage(),
                     MailerException::TEMPLATE_ENGINE_ERROR,
