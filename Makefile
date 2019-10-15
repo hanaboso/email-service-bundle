@@ -1,14 +1,12 @@
-.PHONY: .env init-dev test
+.PHONY: init-dev test
 
 DC=docker-compose
 DE=docker-compose exec -T app
 
 .env:
-	@if ! [ -f .env ]; then \
-		sed -e "s/{DEV_UID}/$(shell id -u)/g" \
-			-e "s/{DEV_GID}/$(shell id -u)/g" \
-			.env.dist >> .env; \
-	fi;
+	sed -e "s/{DEV_UID}/$(shell id -u)/g" \
+		-e "s/{DEV_GID}/$(shell id -u)/g" \
+		.env.dist >> .env; \
 
 # Docker
 docker-up-force: .env
@@ -46,10 +44,10 @@ phpstan:
 	$(DE) ./vendor/bin/phpstan --memory-limit=200M analyse -c ./phpstan.neon -l 7 src/ tests/
 
 phpunit:
-	$(DE) ./vendor/bin/phpunit -c phpunit.xml.dist --colors --stderr tests/Unit
+	$(DE) ./vendor/bin/paratest -c ./vendor/hanaboso/php-check-utils/phpunit.xml.dist -p 4 --runner=WrapperRunner tests/Unit
 
 phpcontroller:
-	$(DE) ./vendor/bin/phpunit -c phpunit.xml.dist --colors --stderr tests/Controller
+	$(DE) ./vendor/bin/paratest -c ./vendor/hanaboso/php-check-utils/phpunit.xml.dist -p 4 --runner=WrapperRunner tests/Controller
 
 test: docker-up-force composer-install fasttest
 

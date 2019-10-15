@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Tests\Unit\MessageBuilder\Impl;
+namespace EmailServiceBundleTests\Unit\MessageBuilder\Impl;
 
 use EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder;
 use EmailServiceBundle\MessageBuilder\MessageBuilderException;
@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
 /**
  * Class GenericMessageBuilderTest
  *
- * @package Tests\Unit\MessageBuilder\Impl
+ * @package EmailServiceBundleTests\Unit\MessageBuilder\Impl
  */
 final class GenericMessageBuilderTest extends TestCase
 {

@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Tests\Unit\Mailer;
+namespace EmailServiceBundleTests\Unit\Mailer;
 
 use EmailServiceBundle\Mailer\Mailer;
 use EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder;
@@ -12,7 +12,7 @@ use PHPUnit\Framework\TestCase;
 /**
  * Class MailerTest
  *
- * @package Tests\Unit\Mailer
+ * @package EmailServiceBundleTests\Unit\Mailer
  */
 final class MailerTest extends TestCase
 {

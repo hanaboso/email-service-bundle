@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Tests\Controller;
+namespace EmailServiceBundleTests\Controller;
 
 use EmailServiceBundle\Controller\ApiController;
 use EmailServiceBundle\Handler\MailHandler;
@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Request;
 /**
  * Class ApiControllerTest
  *
- * @package Tests\Controller
+ * @package EmailServiceBundleTests\Controller
  */
 final class ApiControllerTest extends TestCase
 {

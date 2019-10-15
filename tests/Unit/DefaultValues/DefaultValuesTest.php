@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Tests\Unit\DefaultValues;
+namespace EmailServiceBundleTests\Unit\DefaultValues;
 
 use EmailServiceBundle\DefaultValues\DefaultValues;
 use PHPUnit\Framework\TestCase;
@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 /**
  * Class DefaultValuesTest
  *
- * @package Tests\Unit\DefaultValues
+ * @package EmailServiceBundleTests\Unit\DefaultValues
  */
 final class DefaultValuesTest extends TestCase
 {

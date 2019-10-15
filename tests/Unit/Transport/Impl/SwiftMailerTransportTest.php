@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Tests\Unit\Transport\Impl;
+namespace EmailServiceBundleTests\Unit\Transport\Impl;
 
 use EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder\GenericContentAttachment;
 use EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder\GenericFsAttachment;
@@ -15,7 +15,7 @@ use Swift_Mailer;
 /**
  * Class SwiftMailerTransportTest
  *
- * @package Tests\Unit\Transport\Impl
+ * @package EmailServiceBundleTests\Unit\Transport\Impl
  */
 final class SwiftMailerTransportTest extends TestCase
 {
