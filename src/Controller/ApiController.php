@@ -4,7 +4,7 @@ namespace EmailServiceBundle\Controller;
 
 use EmailServiceBundle\Exception\MailerException;
 use EmailServiceBundle\Handler\MailHandler;
-use EmailServiceBundle\Traits\ControllerTrait;
+use Hanaboso\CommonsBundle\Traits\ControllerTrait;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException;
 use Symfony\Component\HttpFoundation\Request;

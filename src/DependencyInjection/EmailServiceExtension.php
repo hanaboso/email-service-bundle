@@ -39,11 +39,13 @@ class EmailServiceExtension extends Extension
 
         $loader = new YamlFileLoader(
             $container,
-            new FileLocator([
-                __DIR__ . '/../Resources/config',
-                __DIR__ . '/../Resources/config/packages',
-                __DIR__ . '/../Resources/config/services',
-            ])
+            new FileLocator(
+                [
+                    __DIR__ . '/../Resources/config',
+                    __DIR__ . '/../Resources/config/packages',
+                    __DIR__ . '/../Resources/config/services',
+                ]
+            )
         );
 
         $loader->load('services.yaml');

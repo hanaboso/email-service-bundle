@@ -1,24 +1,25 @@
 {
-  "name": "hanaboso/email-service-bundle",
-  "license": "proprietary",
-  "autoload": {
-    "psr-4": {
-      "EmailServiceBundle\\": "src/"
+    "name": "hanaboso/email-service-bundle",
+    "license": "proprietary",
+    "autoload": {
+        "psr-4": {
+            "EmailServiceBundle\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "EmailServiceBundleTests\\": "tests/"
+        }
+    },
+    "require": {
+        "php": "^7.3",
+        "ext-json": "*",
+        "hanaboso/commons-bundle": "^1.2",
+        "symfony/monolog-bundle": "^3.5",
+        "symfony/swiftmailer-bundle": "^3.4",
+        "twig/twig": "^3.0"
+    },
+    "require-dev": {
+        "hanaboso/php-check-utils": "^1.0"
     }
-  },
-  "autoload-dev": {
-    "psr-4": {
-      "EmailServiceBundleTests\\": "tests/"
-    }
-  },
-  "require": {
-    "php": "^7.3",
-    "ext-json": "*",
-    "hanaboso/commons-bundle": "^1.1",
-    "symfony/monolog-bundle": "^3.4",
-    "symfony/swiftmailer-bundle": "^3.2"
-  },
-  "require-dev": {
-    "hanaboso/php-check-utils": "^1.0"
-  }
 }

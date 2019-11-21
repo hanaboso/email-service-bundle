@@ -67,7 +67,8 @@ class SwiftMailerTransport implements TransportInterface
             }
         }
 
-        $logBody = sprintf('subject: %s, recipient: %s, datetime: %s.',
+        $logBody = sprintf(
+            'subject: %s, recipient: %s, datetime: %s.',
             $messageData->getSubject(),
             $messageData->getTo(),
             date(DATE_ATOM)

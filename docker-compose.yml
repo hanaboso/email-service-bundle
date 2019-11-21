@@ -1,25 +1,26 @@
 version: '3'
 services:
-  app:
-    image: dkr.hanaboso.net/pipes/pipes/php-dev:dev
-    user: ${DEV_UID}:${DEV_GID}
-    volumes:
-      - ./:/var/www
-      - ${SSH_AUTH_SOCK}:/tmp/bound-ssh-agent
-      - ${HOME}/.composer:/srv/.composer
-    environment:
-      - APP_ENV=dev
-      - DEV_UID=${DEV_UID}
-      - DEV_GID=${DEV_GID}
-      - PHP_IDE_CONFIG=${PHP_IDE_CONFIG}
-      - SMTP_TRANSPORT=${SMTP_TRANSPORT}
-      - SMTP_HOST=${SMTP_HOST}
-      - SMTP_PORT=${SMTP_PORT}
-      - SMTP_USER=${SMTP_USER}
-      - SMTP_PASSWORD=${SMTP_PASSWORD}
+    app:
+        image: dkr.hanaboso.net/pipes/pipes/php-dev:dev
+        user: ${DEV_UID}:${DEV_GID}
+        volumes:
+            - ./:/var/www
+            - ${SSH_AUTH_SOCK}:/tmp/bound-ssh-agent
+            - ${HOME}/dev/.composer:${HOME}/dev/.composer
+        environment:
+            - APP_ENV=dev
+            - DEV_UID=${DEV_UID}
+            - DEV_GID=${DEV_GID}
+            - PHP_IDE_CONFIG=${PHP_IDE_CONFIG}
+            - COMPOSER_HOME=${HOME}/dev/.composer
+            - SMTP_TRANSPORT=${SMTP_TRANSPORT}
+            - SMTP_HOST=${SMTP_HOST}
+            - SMTP_PORT=${SMTP_PORT}
+            - SMTP_USER=${SMTP_USER}
+            - SMTP_PASSWORD=${SMTP_PASSWORD}
 
-  smtp:
-    image: mailhog/mailhog
-    ports:
-      - ${DEV_IP}:1025:1025
-      - ${DEV_IP}:8025:8025
+    smtp:
+        image: mailhog/mailhog
+        ports:
+            - ${DEV_IP}:1025:1025
+            - ${DEV_IP}:8025:8025
