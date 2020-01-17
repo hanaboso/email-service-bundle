@@ -2,7 +2,7 @@
 
 namespace EmailServiceBundle\Exception;
 
-use Hanaboso\CommonsBundle\Exception\PipesFrameworkExceptionAbstract;
+use Hanaboso\Utils\Exception\PipesFrameworkExceptionAbstract;
 
 /**
  * Class MailerException

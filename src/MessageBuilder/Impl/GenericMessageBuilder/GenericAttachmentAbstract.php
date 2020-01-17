@@ -16,7 +16,7 @@ abstract class GenericAttachmentAbstract
     private $contentType;
 
     /**
-     * @var null|string
+     * @var string|null
      */
     private $filename;
 
@@ -41,7 +41,7 @@ abstract class GenericAttachmentAbstract
     }
 
     /**
-     * @return null|string
+     * @return string|null
      */
     public function getFilename(): ?string
     {

@@ -5,6 +5,7 @@ namespace EmailServiceBundle\Transport\Impl;
 use EmailServiceBundle\Transport\TransportException;
 use EmailServiceBundle\Transport\TransportInterface;
 use EmailServiceBundle\Transport\TransportMessageInterface;
+use Hanaboso\Utils\String\Json;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 use Swift_Attachment;
@@ -77,12 +78,13 @@ class SwiftMailerTransport implements TransportInterface
         try {
             $sent = $this->mailer->send($message);
         } catch (Throwable $t) {
-            $this->logger->error('Message send failed.', ['Exception' => json_encode($t)]);
+            $this->logger->error('Message send failed.', ['Exception' => Json::encode($t)]);
             $sent = 0;
         }
 
         if ($sent === 0) {
             $this->logger->error(sprintf('Message send failed: %s', $logBody));
+
             throw new TransportException('Message send failed.', TransportException::SEND_FAILED);
         }
 

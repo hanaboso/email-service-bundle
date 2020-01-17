@@ -13,6 +13,7 @@ use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
  * Class EmailServiceExtension
  *
  * @package EmailServiceBundle\DependencyInjection
+ * @codeCoverageIgnore
  */
 class EmailServiceExtension extends Extension
 {
@@ -28,7 +29,7 @@ class EmailServiceExtension extends Extension
     /**
      * Loads a specific configuration.
      *
-     * @param array            $configs
+     * @param mixed[]          $configs
      * @param ContainerBuilder $container
      *
      * @throws Exception

@@ -33,7 +33,7 @@ class GenericTransportMessage implements TransportMessageInterface
     private $content = '';
 
     /**
-     * @var null|string
+     * @var string|null
      */
     private $template;
 
@@ -59,7 +59,7 @@ class GenericTransportMessage implements TransportMessageInterface
      * @param string      $to
      * @param string      $subject
      * @param string      $dataContent
-     * @param null|string $template
+     * @param string|null $template
      */
     public function __construct(
         string $from,
@@ -120,7 +120,7 @@ class GenericTransportMessage implements TransportMessageInterface
     }
 
     /**
-     * @return null|string
+     * @return string|null
      */
     public function getTemplate(): ?string
     {

@@ -13,7 +13,7 @@ interface MessageBuilderInterface
 {
 
     /**
-     * @param array $data
+     * @param mixed[] $data
      *
      * @return TransportMessageInterface
      */

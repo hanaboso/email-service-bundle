@@ -37,8 +37,8 @@ class MailHandler
     }
 
     /**
-     * @param string $builderId
-     * @param array  $data
+     * @param string  $builderId
+     * @param mixed[] $data
      *
      * @throws MailerException
      */
@@ -50,8 +50,8 @@ class MailHandler
     }
 
     /**
-     * @param string $builderId
-     * @param array  $data
+     * @param string  $builderId
+     * @param mixed[] $data
      *
      * @throws MailerException
      */

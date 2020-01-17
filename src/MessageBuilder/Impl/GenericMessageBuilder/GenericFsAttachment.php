@@ -20,7 +20,7 @@ class GenericFsAttachment extends GenericAttachmentAbstract
      *
      * @param string      $id
      * @param string      $contentType
-     * @param null|string $filename
+     * @param string|null $filename
      */
     public function __construct(string $id, string $contentType, ?string $filename = NULL)
     {

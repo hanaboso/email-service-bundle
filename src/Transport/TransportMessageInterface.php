@@ -51,7 +51,7 @@ interface TransportMessageInterface
     public function getContentType(): string;
 
     /**
-     * @return null|string
+     * @return string|null
      */
     public function getTemplate(): ?string;
 

@@ -1,6 +1,4 @@
 includes:
-	- vendor/phpstan/phpstan-phpunit/extension.neon # phpunit extension
-	- vendor/phpstan/phpstan-phpunit/rules.neon # phpunit rules
 	- vendor/hanaboso/php-check-utils/phpstan.neon # hanaboso rules
 
 parameters:

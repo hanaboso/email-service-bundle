@@ -6,6 +6,7 @@ use EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder\GenericTranspor
 use EmailServiceBundle\MessageBuilder\MessageBuilderAbstract;
 use EmailServiceBundle\MessageBuilder\MessageBuilderException;
 use EmailServiceBundle\Transport\TransportMessageInterface;
+use Hanaboso\Utils\String\Json;
 
 /**
  * Class GenericMessageBuilder
@@ -16,7 +17,7 @@ class GenericMessageBuilder extends MessageBuilderAbstract
 {
 
     /**
-     * @param array $data
+     * @param mixed[] $data
      *
      * @return TransportMessageInterface
      * @throws MessageBuilderException
@@ -25,7 +26,7 @@ class GenericMessageBuilder extends MessageBuilderAbstract
     {
         if (!self::isValid($data)) {
             throw new MessageBuilderException(
-                sprintf('Invalid data. || %s', json_encode($data)),
+                sprintf('Invalid data. || %s', Json::encode($data)),
                 MessageBuilderException::INVALID_DATA
             );
         }
@@ -40,13 +41,13 @@ class GenericMessageBuilder extends MessageBuilderAbstract
             $data['from'],
             $data['to'],
             $data['subject'],
-            is_array($content) ? json_encode($content) : $content,
+            is_array($content) ? Json::encode($content) : $content,
             $data['template'] ?? NULL
         );
     }
 
     /**
-     * @param array $data
+     * @param mixed[] $data
      *
      * @return bool
      */

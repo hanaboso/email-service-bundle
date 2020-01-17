@@ -11,7 +11,7 @@ interface BuilderDataValidatorInterface
 {
 
     /**
-     * @param array $data
+     * @param mixed[] $data
      *
      * @return bool
      */

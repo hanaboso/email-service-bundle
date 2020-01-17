@@ -17,7 +17,7 @@ final class GenericMessageBuilderTest extends TestCase
 {
 
     /**
-     *
+     * @covers \EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder::isValid
      */
     public function testValid(): void
     {
@@ -32,7 +32,7 @@ final class GenericMessageBuilderTest extends TestCase
     }
 
     /**
-     *
+     * @covers \EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder::isValid
      */
     public function testInvalid(): void
     {
@@ -47,6 +47,8 @@ final class GenericMessageBuilderTest extends TestCase
     }
 
     /**
+     * @covers \EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder::buildTransportMessage
+     *
      * @throws Exception
      */
     public function testBuildTransportMessage(): void
@@ -55,7 +57,7 @@ final class GenericMessageBuilderTest extends TestCase
             'from'    => 'no-reply@test.com',
             'to'      => 'no-reply@test.com',
             'subject' => 'Subject',
-            'content' => 'Content',
+            'content' => ['link' => 'link'],
         ];
 
         $handler = new GenericMessageBuilder();
@@ -65,6 +67,8 @@ final class GenericMessageBuilderTest extends TestCase
     }
 
     /**
+     * @covers \EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder::buildTransportMessage
+     *
      * @throws Exception
      */
     public function testBuildTransportMessageFails(): void
@@ -82,6 +86,33 @@ final class GenericMessageBuilderTest extends TestCase
         $this->expectExceptionCode(MessageBuilderException::INVALID_DATA);
 
         $handler->buildTransportMessage($data);
+    }
+
+    /**
+     * @covers \EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder::isValid
+     */
+    public function testIsValid(): void
+    {
+        $data = [
+            'from' => 'no-reply@test.com',
+        ];
+
+        $this->assertFalse(GenericMessageBuilder::isValid($data));
+
+        $data = [
+            'from' => 'no-reply@test.com',
+            'to'   => 'no-reply@test.com',
+        ];
+
+        $this->assertFalse(GenericMessageBuilder::isValid($data));
+
+        $data = [
+            'from'    => 'no-reply@test.com',
+            'to'      => 'no-reply@test.com',
+            'subject' => 'test',
+        ];
+
+        $this->assertFalse(GenericMessageBuilder::isValid($data));
     }
 
 }

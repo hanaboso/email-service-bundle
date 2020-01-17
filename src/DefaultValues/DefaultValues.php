@@ -11,32 +11,32 @@ class DefaultValues
 {
 
     /**
-     * @var array
+     * @var mixed[]
      */
     protected $from = [];
 
     /**
-     * @var array
+     * @var mixed[]
      */
     protected $subject = [];
 
     /**
-     * @var array
+     * @var mixed[]
      */
     protected $to = [];
 
     /**
-     * @var array
+     * @var mixed[]
      */
     protected $bcc = [];
 
     /**
      * DefaultValues constructor.
      *
-     * @param array $from
-     * @param array $subject
-     * @param array $to
-     * @param array $bcc
+     * @param mixed[] $from
+     * @param mixed[] $subject
+     * @param mixed[] $to
+     * @param mixed[] $bcc
      */
     public function __construct(array $from = [], array $subject = [], array $to = [], array $bcc = [])
     {
@@ -47,11 +47,11 @@ class DefaultValues
     }
 
     /**
-     * @param array $data
-     * @param array $defaults
-     * @param array $fields
+     * @param mixed[] $data
+     * @param mixed[] $defaults
+     * @param mixed[] $fields
      *
-     * @return array
+     * @return mixed[]
      */
     public static function handleDefaults(
         array $data,
@@ -71,7 +71,7 @@ class DefaultValues
     /**
      * @param string $module
      *
-     * @return null|string
+     * @return string|null
      */
     public function getFrom(string $module): ?string
     {
@@ -85,7 +85,7 @@ class DefaultValues
     /**
      * @param string $module
      *
-     * @return null|string
+     * @return string|null
      */
     public function getSubject(string $module): ?string
     {
@@ -99,7 +99,7 @@ class DefaultValues
     /**
      * @param string $module
      *
-     * @return null|string
+     * @return string|null
      */
     public function getTo(string $module): ?string
     {
@@ -113,7 +113,7 @@ class DefaultValues
     /**
      * @param string $module
      *
-     * @return null|string
+     * @return string|null
      */
     public function getBcc(string $module): ?string
     {
@@ -127,7 +127,7 @@ class DefaultValues
     /**
      * @param string $module
      *
-     * @return array
+     * @return mixed[]
      */
     public function getDefaults(string $module): array
     {

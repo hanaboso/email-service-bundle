@@ -3,6 +3,7 @@
 namespace EmailServiceBundleTests\Unit\DefaultValues;
 
 use EmailServiceBundle\DefaultValues\DefaultValues;
+use Hanaboso\Utils\String\Json;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -14,7 +15,7 @@ final class DefaultValuesTest extends TestCase
 {
 
     /**
-     * @var array
+     * @var mixed[]
      */
     protected static $data = [
         ['foo' => 'foo@foo.com', 'boo' => 'boo@boo.com'],   //from
@@ -25,10 +26,16 @@ final class DefaultValuesTest extends TestCase
 
     /**
      * @dataProvider emptyConstructor
-     * @covers       DefaultValues::__construct()
      *
-     * @param string $module
-     * @param array  $result
+     * @covers       \EmailServiceBundle\DefaultValues\DefaultValues::__construct()
+     * @covers       \EmailServiceBundle\DefaultValues\DefaultValues::getDefaults()
+     * @covers       \EmailServiceBundle\DefaultValues\DefaultValues::getFrom()
+     * @covers       \EmailServiceBundle\DefaultValues\DefaultValues::getSubject()
+     * @covers       \EmailServiceBundle\DefaultValues\DefaultValues::getTo()
+     * @covers       \EmailServiceBundle\DefaultValues\DefaultValues::getBcc()
+     *
+     * @param string  $module
+     * @param mixed[] $result
      */
     public function testEmptyConstruct(string $module, array $result): void
     {
@@ -38,29 +45,37 @@ final class DefaultValuesTest extends TestCase
 
     /**
      * @dataProvider filledConstructor
-     * @covers       DefaultValues::__construct()
      *
-     * @param array  $data
-     * @param string $module
-     * @param array  $result
+     * @covers       \EmailServiceBundle\DefaultValues\DefaultValues::__construct()
+     * @covers       \EmailServiceBundle\DefaultValues\DefaultValues::getDefaults()
+     * @covers       \EmailServiceBundle\DefaultValues\DefaultValues::getBcc()
+     * @covers       \EmailServiceBundle\DefaultValues\DefaultValues::getFrom()
+     * @covers       \EmailServiceBundle\DefaultValues\DefaultValues::getSubject()
+     * @covers       \EmailServiceBundle\DefaultValues\DefaultValues::getTo()
+     *
+     * @param mixed[] $data
+     * @param string  $module
+     * @param mixed[] $result
      */
     public function testFilledConstructor(array $data, string $module, array $result): void
     {
         [$from, $subject, $to, $bcc] = $data;
-        $defaults = new DefaultValues($from, $subject, $to, $bcc);
 
+        $defaults = new DefaultValues($from, $subject, $to, $bcc);
         $this->assertEquals($result, $defaults->getDefaults($module));
     }
 
     /**
-     *
+     * @covers \EmailServiceBundle\DefaultValues\DefaultValues::getDefaults
+     * @covers \EmailServiceBundle\DefaultValues\DefaultValues::handleDefaults
+     * @covers \EmailServiceBundle\DefaultValues\DefaultValues::getSubject
+     * @covers \EmailServiceBundle\DefaultValues\DefaultValues::getTo
+     * @covers \EmailServiceBundle\DefaultValues\DefaultValues::getBcc
+     * @covers \EmailServiceBundle\DefaultValues\DefaultValues::getFrom
      */
     public function testFrom(): void
     {
-        $data     = json_decode(
-            '{"to":"user2@hanaboso.com","subject":"Activate user account","content":"","dataContent":{"link":"127.0.0.4:8000\/user\/5a78840bd5a1d\/activate"},"template":null,"from":""}',
-            TRUE
-        );
+        $data     = Json::decode('{"to":"user2@hanaboso.com","subject":"Activate user account","content":"","dataContent":{"link":"127.0.0.4:8000\/user\/5a78840bd5a1d\/activate"},"template":null,"from":""}');
         $defaults = new DefaultValues(['aa' => 'e-mail'], [], [], []);
         $default  = $defaults->getDefaults('aa');
 
@@ -72,12 +87,12 @@ final class DefaultValuesTest extends TestCase
 
     /**
      * @dataProvider handleDefaults
-     * @covers       DefaultValues::handleDefaults()
+     * @covers       \EmailServiceBundle\DefaultValues\DefaultValues::handleDefaults()
      *
-     * @param array $data
-     * @param array $defaults
-     * @param array $fields
-     * @param array $result
+     * @param mixed[] $data
+     * @param mixed[] $defaults
+     * @param mixed[] $fields
+     * @param mixed[] $result
      */
     public function testHandleDefaults(array $data, array $defaults, array $fields, array $result): void
     {
@@ -86,7 +101,7 @@ final class DefaultValuesTest extends TestCase
     }
 
     /**
-     * @return array
+     * @return mixed[]
      */
     public function handleDefaults(): array
     {
@@ -120,7 +135,7 @@ final class DefaultValuesTest extends TestCase
     }
 
     /**
-     * @return array
+     * @return mixed[]
      */
     public function filledConstructor(): array
     {
@@ -144,7 +159,7 @@ final class DefaultValuesTest extends TestCase
     }
 
     /**
-     * @return array
+     * @return mixed[]
      */
     public function emptyConstructor(): array
     {

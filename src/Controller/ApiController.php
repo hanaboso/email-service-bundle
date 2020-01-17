@@ -4,7 +4,8 @@ namespace EmailServiceBundle\Controller;
 
 use EmailServiceBundle\Exception\MailerException;
 use EmailServiceBundle\Handler\MailHandler;
-use Hanaboso\CommonsBundle\Traits\ControllerTrait;
+use Hanaboso\Utils\String\Json;
+use Hanaboso\Utils\Traits\ControllerTrait;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException;
 use Symfony\Component\HttpFoundation\Request;
@@ -48,7 +49,7 @@ class ApiController extends AbstractController
     public function sendAction(Request $request, string $handlerId): Response
     {
         try {
-            $this->mailHandler->send($handlerId, json_decode((string) $request->getContent(), TRUE));
+            $this->mailHandler->send($handlerId, Json::decode((string) $request->getContent()));
 
             return $this->getResponse(['status' => 'OK']);
         } catch (ServiceNotFoundException | MailerException | Throwable $e) {
@@ -67,7 +68,7 @@ class ApiController extends AbstractController
     public function sendTestAction(Request $request, string $handlerId): Response
     {
         try {
-            $this->mailHandler->testSend($handlerId, json_decode((string) $request->getContent(), TRUE));
+            $this->mailHandler->testSend($handlerId, Json::decode((string) $request->getContent()));
 
             return $this->getResponse(['status' => 'OK']);
         } catch (ServiceNotFoundException | MailerException | Throwable $e) {

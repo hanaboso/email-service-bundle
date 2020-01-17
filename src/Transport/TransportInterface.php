@@ -20,4 +20,3 @@ interface TransportInterface extends LoggerAwareInterface
     public function send(TransportMessageInterface $message);
 
 }
-
