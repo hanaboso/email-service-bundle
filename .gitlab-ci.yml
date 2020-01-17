@@ -15,7 +15,7 @@ test:
     script:
         - export COMPOSE_PROJECT_NAME="${CI_PIPELINE_ID}-email-service-bundle"
         - export COMPOSE_FILE=docker-compose.ci.yml
-        - make ${COMPOSE_FILE} test
+        - make ${COMPOSE_FILE} test docker-down-clean
 
 mirror:
     stage: mirror

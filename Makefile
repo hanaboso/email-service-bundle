@@ -23,10 +23,10 @@ docker-compose.ci.yml:
 
 # Composer
 composer-install:
-	$(DE) composer install --ignore-platform-reqs
+	$(DE) composer install --no-suggest
 
 composer-update:
-	$(DE) composer update --ignore-platform-reqs
+	$(DE) composer update --no-suggest
 
 composer-outdated:
 	$(DE) composer outdated
@@ -42,7 +42,7 @@ codesniffer:
 	$(DE) ./vendor/bin/phpcs --standard=./ruleset.xml --colors -p src/ tests/
 
 phpstan:
-	$(DE) ./vendor/bin/phpstan --memory-limit=200M analyse -c ./phpstan.neon -l 7 src/ tests/
+	$(DE) ./vendor/bin/phpstan --memory-limit=200M analyse -c ./phpstan.neon -l 8 src/ tests/
 
 phpunit:
 	$(DE) ./vendor/bin/paratest -c ./vendor/hanaboso/php-check-utils/phpunit.xml.dist -p 4 --runner=WrapperRunner tests/Unit
@@ -54,7 +54,7 @@ phpcoverage:
 	$(DE) php vendor/bin/paratest -c ./vendor/hanaboso/php-check-utils/phpunit.xml.dist -p 4 --coverage-html var/coverage --whitelist src tests
 
 phpcoverage-ci:
-	$(DE) ./vendor/hanaboso/php-check-utils/bin/coverage.sh 100 || true
+	$(DE) ./vendor/hanaboso/php-check-utils/bin/coverage.sh
 
 test: docker-up-force composer-install fasttest
 
