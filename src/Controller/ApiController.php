@@ -49,7 +49,7 @@ class ApiController extends AbstractController
     public function sendAction(Request $request, string $handlerId): Response
     {
         try {
-            $this->mailHandler->send($handlerId, Json::decode((string) $request->getContent()));
+            $this->mailHandler->send($handlerId, Json::decode($request->getContent()));
 
             return $this->getResponse(['status' => 'OK']);
         } catch (ServiceNotFoundException | MailerException | Throwable $e) {
@@ -68,7 +68,7 @@ class ApiController extends AbstractController
     public function sendTestAction(Request $request, string $handlerId): Response
     {
         try {
-            $this->mailHandler->testSend($handlerId, Json::decode((string) $request->getContent()));
+            $this->mailHandler->testSend($handlerId, Json::decode($request->getContent()));
 
             return $this->getResponse(['status' => 'OK']);
         } catch (ServiceNotFoundException | MailerException | Throwable $e) {

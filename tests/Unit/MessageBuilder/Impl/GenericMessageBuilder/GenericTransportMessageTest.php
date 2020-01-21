@@ -41,10 +41,10 @@ class GenericTransportMessageTest extends TestCase
         self::assertEquals('text/plain', $message->getContentType());
 
         $message->addFileStorageAttachment(new GenericFsAttachment('id', 'type', 'filename'));
-        self::assertInstanceOf(GenericFsAttachment::class, $message->getFileStorageAttachments()[0]);
+        self::assertNotEmpty($message->getFileStorageAttachments()[0]);
 
         $message->addContentAttachment(new GenericContentAttachment('content', 'type', 'filename'));
-        self::assertInstanceOf(GenericContentAttachment::class, $message->getContentAttachments()[0]);
+        self::assertNotEmpty($message->getContentAttachments()[0]);
     }
 
 }

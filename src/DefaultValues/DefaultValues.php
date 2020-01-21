@@ -47,28 +47,6 @@ class DefaultValues
     }
 
     /**
-     * @param mixed[] $data
-     * @param mixed[] $defaults
-     * @param mixed[] $fields
-     *
-     * @return mixed[]
-     */
-    public static function handleDefaults(
-        array $data,
-        array $defaults,
-        array $fields = ['from', 'subject', 'to', 'bcc']
-    ): array
-    {
-        foreach ($fields as $field) {
-            if ((!array_key_exists($field, $data) || empty($data[$field])) && $defaults[$field]) {
-                $data[$field] = $defaults[$field];
-            }
-        }
-
-        return $data;
-    }
-
-    /**
      * @param string $module
      *
      * @return string|null
@@ -137,6 +115,28 @@ class DefaultValues
             'to'      => $this->getTo($module),
             'bcc'     => $this->getBcc($module),
         ];
+    }
+
+    /**
+     * @param mixed[] $data
+     * @param mixed[] $defaults
+     * @param mixed[] $fields
+     *
+     * @return mixed[]
+     */
+    public static function handleDefaults(
+        array $data,
+        array $defaults,
+        array $fields = ['from', 'subject', 'to', 'bcc']
+    ): array
+    {
+        foreach ($fields as $field) {
+            if ((!array_key_exists($field, $data) || empty($data[$field])) && $defaults[$field]) {
+                $data[$field] = $defaults[$field];
+            }
+        }
+
+        return $data;
     }
 
 }
