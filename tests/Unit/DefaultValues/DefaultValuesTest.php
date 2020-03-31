@@ -17,11 +17,11 @@ final class DefaultValuesTest extends TestCase
     /**
      * @var mixed[]
      */
-    protected static $data = [
-        ['foo' => 'foo@foo.com', 'boo' => 'boo@boo.com'],   //from
-        ['foo' => 'Foo subject', 'test' => 'test@example.com'],   //subject
-        ['foo' => 'to@foo.com', 'boo' => 'to@boo.com'],   //to
-        ['foo' => 'bcc@foo.com', 'boo' => 'bcc@boo.com'],   //bcc
+    protected static array $data = [
+        ['foo' => 'foo@foo.com', 'boo' => 'boo@boo.com'],
+        ['foo' => 'Foo subject', 'test' => 'test@example.com'],
+        ['foo' => 'to@foo.com', 'boo' => 'to@boo.com'],
+        ['foo' => 'bcc@foo.com', 'boo' => 'bcc@boo.com'],
     ];
 
     /**
