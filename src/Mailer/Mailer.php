@@ -13,18 +13,18 @@ use Twig\Environment;
  *
  * @package EmailServiceBundle\Mailer
  */
-class Mailer
+final class Mailer
 {
 
     /**
      * @var TransportInterface
      */
-    private $transport;
+    private TransportInterface $transport;
 
     /**
      * @var Environment|null
      */
-    private $engine;
+    private ?Environment $engine;
 
     /**
      * Mailer constructor.

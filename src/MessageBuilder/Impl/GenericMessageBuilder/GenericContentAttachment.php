@@ -7,13 +7,13 @@ namespace EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder;
  *
  * @package EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder
  */
-class GenericContentAttachment extends GenericAttachmentAbstract
+final class GenericContentAttachment extends GenericAttachmentAbstract
 {
 
     /**
      * @var string
      */
-    private $content;
+    private string $content;
 
     /**
      * GenericContentAttachment constructor.

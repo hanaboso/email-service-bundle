@@ -18,7 +18,7 @@ use Throwable;
  *
  * @package EmailServiceBundle\Controller
  */
-class ApiController extends AbstractController
+final class ApiController extends AbstractController
 {
 
     use ControllerTrait;
@@ -26,7 +26,7 @@ class ApiController extends AbstractController
     /**
      * @var MailHandler
      */
-    private $mailHandler;
+    private MailHandler $mailHandler;
 
     /**
      * ApiController constructor.

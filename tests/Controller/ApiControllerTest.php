@@ -7,7 +7,6 @@ use EmailServiceBundle\Exception\MailerException;
 use EmailServiceBundle\Handler\MailHandler;
 use Exception;
 use Monolog\Logger;
-use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -27,7 +26,6 @@ final class ApiControllerTest extends TestCase
      */
     public function testSend(): void
     {
-        /** @var MailHandler|MockObject $mailHandler */
         $mailHandler = $this->createMock(MailHandler::class);
         $controller  = new ApiController($mailHandler);
         $request     = new Request([], [], [], [], [], [], '{"abc": "def"}');
@@ -45,7 +43,6 @@ final class ApiControllerTest extends TestCase
      */
     public function testSendErr(): void
     {
-        /** @var MailHandler|MockObject $mailHandler */
         $mailHandler = $this->createPartialMock(MailHandler::class, ['send']);
         $mailHandler->expects(self::any())->method('send')->willThrowException(new MailerException());
         $controller = new ApiController($mailHandler);
@@ -63,7 +60,6 @@ final class ApiControllerTest extends TestCase
      */
     public function testSendTest(): void
     {
-        /** @var MailHandler|MockObject $mailHandler */
         $mailHandler = $this->createMock(MailHandler::class);
         $controller  = new ApiController($mailHandler);
         $request     = new Request([], [], [], [], [], [], '{"abc": "def"}');
@@ -81,7 +77,6 @@ final class ApiControllerTest extends TestCase
      */
     public function testSendTestErr(): void
     {
-        /** @var MailHandler|MockObject $mailHandler */
         $mailHandler = $this->createPartialMock(MailHandler::class, ['testSend']);
         $mailHandler->expects(self::any())->method('testSend')->willThrowException(new MailerException());
         $controller = new ApiController($mailHandler);

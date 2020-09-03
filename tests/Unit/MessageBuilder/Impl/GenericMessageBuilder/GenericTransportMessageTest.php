@@ -12,7 +12,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @package EmailServiceBundleTests\Unit\MessageBuilder\Impl\GenericMessageBuilder
  */
-class GenericTransportMessageTest extends TestCase
+final class GenericTransportMessageTest extends TestCase
 {
 
     /**

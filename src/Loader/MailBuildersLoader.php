@@ -11,7 +11,7 @@ use Symfony\Component\DependencyInjection\ServiceLocator;
  *
  * @package EmailServiceBundle\Loader
  */
-class MailBuildersLoader
+final class MailBuildersLoader
 {
 
     private const BUILDER_PREFIX = 'mail_builder';
@@ -19,7 +19,7 @@ class MailBuildersLoader
     /**
      * @var ServiceLocator
      */
-    private $locator;
+    private ServiceLocator $locator;
 
     /**
      * MailBuildersLoader constructor.

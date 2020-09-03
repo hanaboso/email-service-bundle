@@ -15,7 +15,7 @@ use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
  * @package EmailServiceBundle\DependencyInjection
  * @codeCoverageIgnore
  */
-class EmailServiceExtension extends Extension
+final class EmailServiceExtension extends Extension
 {
 
     /**

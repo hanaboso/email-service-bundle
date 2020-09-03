@@ -1,17 +1,7 @@
 {
     "name": "hanaboso/email-service-bundle",
-    "license": "proprietary",
-    "version": "1.1.5",
-    "autoload": {
-        "psr-4": {
-            "EmailServiceBundle\\": "src/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "EmailServiceBundleTests\\": "tests/"
-        }
-    },
+    "version": "1.1.6",
+    "license": "Apache-2.0",
     "require": {
         "php": "^7.4",
         "ext-iconv": "*",
@@ -22,5 +12,15 @@
     },
     "require-dev": {
         "hanaboso/php-check-utils": "^1.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "EmailServiceBundle\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "EmailServiceBundleTests\\": "tests/"
+        }
     }
 }

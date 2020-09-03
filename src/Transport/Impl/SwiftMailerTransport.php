@@ -24,12 +24,12 @@ class SwiftMailerTransport implements TransportInterface
     /**
      * @var Swift_Mailer
      */
-    protected $mailer;
+    protected Swift_Mailer $mailer;
 
     /**
      * @var LoggerInterface
      */
-    private $logger;
+    private LoggerInterface $logger;
 
     /**
      * SwiftMailerTransport constructor.

@@ -9,7 +9,7 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
  *
  * @package EmailServiceBundle
  */
-class EmailServiceBundle extends Bundle
+final class EmailServiceBundle extends Bundle
 {
 
     public const KEY = 'email_service';

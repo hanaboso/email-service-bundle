@@ -13,22 +13,22 @@ class DefaultValues
     /**
      * @var mixed[]
      */
-    protected $from = [];
+    protected array $from = [];
 
     /**
      * @var mixed[]
      */
-    protected $subject = [];
+    protected array $subject = [];
 
     /**
      * @var mixed[]
      */
-    protected $to = [];
+    protected array $to = [];
 
     /**
      * @var mixed[]
      */
-    protected $bcc = [];
+    protected array $bcc = [];
 
     /**
      * DefaultValues constructor.

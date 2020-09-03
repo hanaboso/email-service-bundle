@@ -15,27 +15,27 @@ class GenericTransportMessage implements TransportMessageInterface
     /**
      * @var string
      */
-    private $from;
+    private string $from;
 
     /**
      * @var string
      */
-    private $to;
+    private string $to;
 
     /**
      * @var string
      */
-    private $subject;
+    private string $subject;
 
     /**
      * @var string
      */
-    private $content = '';
+    private string $content = '';
 
     /**
      * @var string|null
      */
-    private $template;
+    private ?string $template;
 
     /**
      * @var mixed
@@ -45,12 +45,12 @@ class GenericTransportMessage implements TransportMessageInterface
     /**
      * @var GenericContentAttachment[]
      */
-    private $contentAttachments = [];
+    private array $contentAttachments = [];
 
     /**
      * @var GenericFsAttachment[]
      */
-    private $fileStorageAttachments = [];
+    private array $fileStorageAttachments = [];
 
     /**
      * GenericTransportMessage constructor.

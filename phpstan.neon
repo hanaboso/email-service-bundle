@@ -4,3 +4,15 @@ includes:
 parameters:
 	excludes_analyse:
 	ignoreErrors:
+	ergebnis:
+		classesNotRequiredToBeAbstractOrFinal:
+		    - EmailServiceBundle\DefaultValues\DefaultValues
+		    - EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder
+		    - EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder\GenericTransportMessage
+		    - EmailServiceBundle\Transport\Impl\SwiftMailerTransport
+		    - EmailServiceBundle\Transport\TransportException
+		classesAllowedToBeExtended:
+		    - EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder\GenericAttachmentAbstract
+		    - EmailServiceBundle\MessageBuilder\MessageBuilderAbstract
+		    - Hanaboso\Utils\Exception\PipesFrameworkExceptionAbstract
+		    - Symfony\Component\DependencyInjection\Extension\Extension

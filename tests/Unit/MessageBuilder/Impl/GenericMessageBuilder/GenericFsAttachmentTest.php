@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @package EmailServiceBundleTests\Unit\MessageBuilder\Impl\GenericMessageBuilder
  */
-class GenericFsAttachmentTest extends TestCase
+final class GenericFsAttachmentTest extends TestCase
 {
 
     /**

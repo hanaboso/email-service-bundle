@@ -11,18 +11,18 @@ use EmailServiceBundle\Mailer\Mailer;
  *
  * @package EmailServiceBundle\Handler
  */
-class MailHandler
+final class MailHandler
 {
 
     /**
      * @var Mailer
      */
-    private $mailer;
+    private Mailer $mailer;
 
     /**
      * @var MailBuildersLoader
      */
-    private $buildersLoader;
+    private MailBuildersLoader $buildersLoader;
 
     /**
      * MailHandler constructor.
