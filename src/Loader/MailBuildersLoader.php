@@ -17,18 +17,12 @@ final class MailBuildersLoader
     private const BUILDER_PREFIX = 'mail_builder';
 
     /**
-     * @var ServiceLocator
-     */
-    private ServiceLocator $locator;
-
-    /**
      * MailBuildersLoader constructor.
      *
      * @param ServiceLocator $locator
      */
-    public function __construct(ServiceLocator $locator)
+    public function __construct(private ServiceLocator $locator)
     {
-        $this->locator = $locator;
     }
 
     /**

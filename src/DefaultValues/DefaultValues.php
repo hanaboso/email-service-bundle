@@ -11,26 +11,6 @@ class DefaultValues
 {
 
     /**
-     * @var mixed[]
-     */
-    protected array $from = [];
-
-    /**
-     * @var mixed[]
-     */
-    protected array $subject = [];
-
-    /**
-     * @var mixed[]
-     */
-    protected array $to = [];
-
-    /**
-     * @var mixed[]
-     */
-    protected array $bcc = [];
-
-    /**
      * DefaultValues constructor.
      *
      * @param mixed[] $from
@@ -38,12 +18,13 @@ class DefaultValues
      * @param mixed[] $to
      * @param mixed[] $bcc
      */
-    public function __construct(array $from = [], array $subject = [], array $to = [], array $bcc = [])
+    public function __construct(
+        protected array $from = [],
+        protected array $subject = [],
+        protected array $to = [],
+        protected array $bcc = []
+    )
     {
-        $this->from    = $from;
-        $this->subject = $subject;
-        $this->to      = $to;
-        $this->bcc     = $bcc;
     }
 
     /**
@@ -110,10 +91,10 @@ class DefaultValues
     public function getDefaults(string $module): array
     {
         return [
-            'from'    => $this->getFrom($module),
+            'from' => $this->getFrom($module),
             'subject' => $this->getSubject($module),
-            'to'      => $this->getTo($module),
-            'bcc'     => $this->getBcc($module),
+            'to' => $this->getTo($module),
+            'bcc' => $this->getBcc($module),
         ];
     }
 

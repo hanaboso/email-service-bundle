@@ -14,9 +14,7 @@ interface TransportInterface extends LoggerAwareInterface
 
     /**
      * @param TransportMessageInterface $message
-     *
-     * @return mixed
      */
-    public function send(TransportMessageInterface $message);
+    public function send(TransportMessageInterface $message): void;
 
 }

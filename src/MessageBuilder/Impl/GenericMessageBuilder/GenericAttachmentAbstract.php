@@ -11,25 +11,13 @@ abstract class GenericAttachmentAbstract
 {
 
     /**
-     * @var string
-     */
-    private $contentType;
-
-    /**
-     * @var string|null
-     */
-    private $filename;
-
-    /**
      * GenericAttachmentAbstract constructor.
      *
      * @param string      $contentType
      * @param string|null $filename
      */
-    public function __construct(string $contentType, ?string $filename = NULL)
+    public function __construct(private string $contentType, private ?string $filename = NULL)
     {
-        $this->contentType = $contentType;
-        $this->filename    = $filename;
     }
 
     /**

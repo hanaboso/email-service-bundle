@@ -15,32 +15,7 @@ class GenericTransportMessage implements TransportMessageInterface
     /**
      * @var string
      */
-    private string $from;
-
-    /**
-     * @var string
-     */
-    private string $to;
-
-    /**
-     * @var string
-     */
-    private string $subject;
-
-    /**
-     * @var string
-     */
     private string $content = '';
-
-    /**
-     * @var string|null
-     */
-    private ?string $template;
-
-    /**
-     * @var mixed
-     */
-    private $dataContent;
 
     /**
      * @var GenericContentAttachment[]
@@ -62,18 +37,13 @@ class GenericTransportMessage implements TransportMessageInterface
      * @param string|null $template
      */
     public function __construct(
-        string $from,
-        string $to,
-        string $subject,
-        string $dataContent,
-        ?string $template = NULL
+        private string $from,
+        private string $to,
+        private string $subject,
+        private string $dataContent,
+        private ?string $template = NULL
     )
     {
-        $this->from        = $from;
-        $this->to          = $to;
-        $this->subject     = $subject;
-        $this->dataContent = $dataContent;
-        $this->template    = $template;
         if (!$template) {
             $this->content = $dataContent;
         }
@@ -104,9 +74,9 @@ class GenericTransportMessage implements TransportMessageInterface
     }
 
     /**
-     * @return array|mixed|string
+     * @return string|mixed[]
      */
-    public function getDataContent()
+    public function getDataContent(): string|array
     {
         return $this->template ? ['content' => $this->dataContent] : $this->dataContent;
     }

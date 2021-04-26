@@ -31,14 +31,12 @@ interface TransportMessageInterface
     /**
      * @return mixed
      */
-    public function getDataContent();
+    public function getDataContent(): mixed;
 
     /**
      * @param string $content
-     *
-     * @return mixed
      */
-    public function setContent(string $content);
+    public function setContent(string $content): void;
 
     /**
      * @return string

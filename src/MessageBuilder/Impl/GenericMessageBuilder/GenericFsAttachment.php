@@ -11,22 +11,15 @@ final class GenericFsAttachment extends GenericAttachmentAbstract
 {
 
     /**
-     * @var string
-     */
-    private string $id;
-
-    /**
      * GenericFsAttachment constructor.
      *
      * @param string      $id
      * @param string      $contentType
      * @param string|null $filename
      */
-    public function __construct(string $id, string $contentType, ?string $filename = NULL)
+    public function __construct(private string $id, string $contentType, ?string $filename = NULL)
     {
         parent::__construct($contentType, $filename);
-
-        $this->id = $id;
     }
 
     /**

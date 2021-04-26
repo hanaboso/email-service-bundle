@@ -6,11 +6,10 @@ use EmailServiceBundle\Exception\MailerException;
 use EmailServiceBundle\Mailer\Mailer;
 use EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder;
 use EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder\GenericTransportMessage;
-use EmailServiceBundle\Transport\Impl\SwiftMailerTransport;
+use EmailServiceBundle\Transport\Impl\SymfonyMailerTransport;
 use EmailServiceBundle\Transport\TransportException;
 use EmailServiceBundle\Transport\TransportInterface;
 use Exception;
-use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Twig\Environment;
 
@@ -29,9 +28,11 @@ final class MailerTest extends TestCase
      */
     public function testSend(): void
     {
-        /** @var TransportInterface|MockObject $transport */
         $transport = $this->createPartialMock(TransportInterface::class, ['send', 'setLogger']);
-        $transport->method('send')->willReturn(1);
+        $transport->method('send')->willReturnCallback(
+            static function (): void {
+            }
+        );
         $transport->method('setLogger')->willReturn(1);
 
         $data = [
@@ -53,9 +54,11 @@ final class MailerTest extends TestCase
      */
     public function testSendTest(): void
     {
-        /** @var TransportInterface|MockObject $transport */
         $transport = $this->createPartialMock(TransportInterface::class, ['send', 'setLogger']);
-        $transport->method('send')->willReturn(1);
+        $transport->method('send')->willReturnCallback(
+            static function (): void {
+            }
+        );
         $transport->method('setLogger')->willReturn(1);
 
         $data = [
@@ -78,7 +81,7 @@ final class MailerTest extends TestCase
      */
     public function testRenderAndSend(): void
     {
-        $transport = self::createMock(SwiftMailerTransport::class);
+        $transport = self::createMock(SymfonyMailerTransport::class);
         $message   = self::createPartialMock(GenericTransportMessage::class, ['getTemplate', 'getDataContent']);
         $message->expects(self::any())->method('getTemplate')->willReturn('template');
         $message->expects(self::any())->method('getDataContent')->willReturn(['data']);
@@ -98,7 +101,7 @@ final class MailerTest extends TestCase
      */
     public function testRenderAndSendErr(): void
     {
-        $transport = self::createMock(SwiftMailerTransport::class);
+        $transport = self::createMock(SymfonyMailerTransport::class);
         $message   = self::createPartialMock(GenericTransportMessage::class, ['getTemplate']);
         $message->expects(self::any())->method('getTemplate')->willReturn('template');
 
@@ -114,7 +117,7 @@ final class MailerTest extends TestCase
      */
     public function testRenderAndSendErr2(): void
     {
-        $transport = self::createPartialMock(SwiftMailerTransport::class, ['send']);
+        $transport = self::createPartialMock(SymfonyMailerTransport::class, ['send']);
         $transport->expects(self::any())->method('send')->willThrowException(new TransportException());
         $message = self::createPartialMock(GenericTransportMessage::class, ['getTemplate']);
         $message->expects(self::any())->method('getTemplate')->willReturn('template');
@@ -133,7 +136,7 @@ final class MailerTest extends TestCase
      */
     public function testRenderAndSendErr3(): void
     {
-        $transport = self::createPartialMock(SwiftMailerTransport::class, ['send']);
+        $transport = self::createPartialMock(SymfonyMailerTransport::class, ['send']);
         $transport->expects(self::any())->method('send')->willThrowException(new TransportException());
         $message = self::createPartialMock(GenericTransportMessage::class, ['getTemplate']);
         $message->expects(self::any())->method('getTemplate')->willReturn(NULL);
@@ -151,7 +154,7 @@ final class MailerTest extends TestCase
      */
     public function testRenderAndSendTest(): void
     {
-        $transport = self::createMock(SwiftMailerTransport::class);
+        $transport = self::createMock(SymfonyMailerTransport::class);
         $message   = self::createPartialMock(GenericTransportMessage::class, ['getTemplate']);
         $message->expects(self::any())->method('getTemplate')->willReturn('template');
         $mailer = new Mailer($transport, NULL);

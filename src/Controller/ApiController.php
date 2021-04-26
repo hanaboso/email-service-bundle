@@ -24,18 +24,12 @@ final class ApiController extends AbstractController
     use ControllerTrait;
 
     /**
-     * @var MailHandler
-     */
-    private MailHandler $mailHandler;
-
-    /**
      * ApiController constructor.
      *
      * @param MailHandler $mailHandler
      */
-    public function __construct(MailHandler $mailHandler)
+    public function __construct(private MailHandler $mailHandler)
     {
-        $this->mailHandler = $mailHandler;
     }
 
     /**

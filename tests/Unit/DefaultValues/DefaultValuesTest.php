@@ -84,7 +84,7 @@ final class DefaultValuesTest extends TestCase
         $defaultData = DefaultValues::handleDefaults($data, $default, ['from']);
 
         self::assertNotEmpty($defaultData['from']);
-        self::assertEquals($defaultData['from'], 'e-mail');
+        self::assertEquals('e-mail', $defaultData['from']);
     }
 
     /**

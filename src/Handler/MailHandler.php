@@ -15,25 +15,13 @@ final class MailHandler
 {
 
     /**
-     * @var Mailer
-     */
-    private Mailer $mailer;
-
-    /**
-     * @var MailBuildersLoader
-     */
-    private MailBuildersLoader $buildersLoader;
-
-    /**
      * MailHandler constructor.
      *
      * @param Mailer             $mailer
      * @param MailBuildersLoader $buildersLoader
      */
-    public function __construct(Mailer $mailer, MailBuildersLoader $buildersLoader)
+    public function __construct(private Mailer $mailer, private MailBuildersLoader $buildersLoader)
     {
-        $this->mailer         = $mailer;
-        $this->buildersLoader = $buildersLoader;
     }
 
     /**

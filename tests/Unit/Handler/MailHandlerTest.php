@@ -6,7 +6,8 @@ use EmailServiceBundle\Handler\MailHandler;
 use EmailServiceBundle\Loader\MailBuildersLoader;
 use EmailServiceBundle\Mailer\Mailer;
 use EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder;
-use EmailServiceBundle\Transport\Impl\SwiftMailerTransport;
+use EmailServiceBundle\Transport\Impl\SymfonyMailerTransport;
+use Exception;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -24,10 +25,12 @@ final class MailHandlerTest extends TestCase
      * @covers \EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder::buildTransportMessage
      * @covers \EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder::buildTransportMessage
      * @covers \EmailServiceBundle\Mailer\Mailer::renderAndSend
+     *
+     * @throws Exception
      */
     public function testSend(): void
     {
-        $transport = self::createPartialMock(SwiftMailerTransport::class, ['send']);
+        $transport = self::createPartialMock(SymfonyMailerTransport::class, ['send']);
         $transport->method('send');
         $mailer        = new Mailer($transport);
         $builderLoader = self::createPartialMock(MailBuildersLoader::class, ['getBuilder']);
@@ -36,7 +39,10 @@ final class MailHandlerTest extends TestCase
 
         $handler->send(
             '1',
-            ['from' => 'sender@gmail.com', 'to' => 'recipient@gmail.com', 'subject' => 'example', 'dataContent' => ['content']]
+            [
+                'from'        => 'sender@gmail.com', 'to' => 'recipient@gmail.com', 'subject' => 'example',
+                'dataContent' => ['content'],
+            ]
         );
 
         self::assertTrue(TRUE);
@@ -49,10 +55,12 @@ final class MailHandlerTest extends TestCase
      * @covers \EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder::buildTransportMessage
      * @covers \EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder::buildTransportMessage
      * @covers \EmailServiceBundle\Mailer\Mailer::renderAndSend
+     *
+     * @throws Exception
      */
     public function testTestSend(): void
     {
-        $transport = self::createPartialMock(SwiftMailerTransport::class, ['send']);
+        $transport = self::createPartialMock(SymfonyMailerTransport::class, ['send']);
         $transport->method('send');
         $mailer        = new Mailer($transport);
         $builderLoader = self::createPartialMock(MailBuildersLoader::class, ['getBuilder']);
@@ -61,7 +69,10 @@ final class MailHandlerTest extends TestCase
 
         $handler->testSend(
             '1',
-            ['from' => 'sender@gmail.com', 'to' => 'recipient@gmail.com', 'subject' => 'example', 'dataContent' => ['content']]
+            [
+                'from'        => 'sender@gmail.com', 'to' => 'recipient@gmail.com', 'subject' => 'example',
+                'dataContent' => ['content'],
+            ]
         );
 
         self::assertTrue(TRUE);

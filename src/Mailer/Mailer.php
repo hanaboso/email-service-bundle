@@ -17,25 +17,13 @@ final class Mailer
 {
 
     /**
-     * @var TransportInterface
-     */
-    private TransportInterface $transport;
-
-    /**
-     * @var Environment|null
-     */
-    private ?Environment $engine;
-
-    /**
      * Mailer constructor.
      *
      * @param TransportInterface $transport
      * @param Environment|null   $engine
      */
-    public function __construct(TransportInterface $transport, ?Environment $engine = NULL)
+    public function __construct(private TransportInterface $transport, private ?Environment $engine = NULL)
     {
-        $this->transport = $transport;
-        $this->engine    = $engine;
     }
 
     /**
