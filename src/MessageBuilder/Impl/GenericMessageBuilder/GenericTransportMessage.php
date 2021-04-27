@@ -2,6 +2,7 @@
 
 namespace EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder;
 
+use EmailServiceBundle\Enum\ContentTypeEnum;
 use EmailServiceBundle\Transport\TransportMessageInterface;
 
 /**
@@ -102,7 +103,7 @@ class GenericTransportMessage implements TransportMessageInterface
      */
     public function getContentType(): string
     {
-        return $this->template ? 'text/html' : 'text/plain';
+        return $this->template ? ContentTypeEnum::HTML : ContentTypeEnum::PLAIN;
     }
 
     /**

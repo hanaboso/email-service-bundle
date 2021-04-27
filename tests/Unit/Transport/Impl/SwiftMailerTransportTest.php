@@ -22,8 +22,8 @@ final class SwiftMailerTransportTest extends TestCase
 
     /**
      * @covers \EmailServiceBundle\Transport\Impl\SymfonyMailerTransport
-     * @covers \EmailServiceBundle\Transport\Impl\SwiftMailerTransport::setLogger
-     * @covers \EmailServiceBundle\Transport\Impl\SwiftMailerTransport::send
+     * @covers \EmailServiceBundle\Transport\Impl\SymfonyMailerTransport::setLogger
+     * @covers \EmailServiceBundle\Transport\Impl\SymfonyMailerTransport::send
      *
      * @throws Exception
      */
@@ -52,7 +52,34 @@ final class SwiftMailerTransportTest extends TestCase
     }
 
     /**
-     * @covers \EmailServiceBundle\Transport\Impl\SwiftMailerTransport::send
+     * @covers \EmailServiceBundle\Transport\Impl\SymfonyMailerTransport
+     * @covers \EmailServiceBundle\Transport\Impl\SymfonyMailerTransport::setLogger
+     * @covers \EmailServiceBundle\Transport\Impl\SymfonyMailerTransport::send
+     *
+     * @throws Exception
+     */
+    public function testSendHtml(): void
+    {
+        $fakeMailer = $this->createPartialMock(Mailer::class, ['send']);
+        $fakeMailer->method('send')->willReturnCallback(
+            static function (): void {
+            }
+        );
+
+        $message = new GenericTransportMessage(
+            'no-reply@test.com',
+            'no-reply@test.com',
+            'Subject',
+            'Content',
+            'Some/template.html.twig'
+        );
+        $mailer  = new SymfonyMailerTransport($fakeMailer);
+        $mailer->send($message);
+        self::assertTrue(TRUE);
+    }
+
+    /**
+     * @covers \EmailServiceBundle\Transport\Impl\SymfonyMailerTransport::send
      */
     public function testSendErr(): void
     {

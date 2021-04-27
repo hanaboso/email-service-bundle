@@ -6,13 +6,14 @@ parameters:
 	ignoreErrors:
 	ergebnis:
 		classesNotRequiredToBeAbstractOrFinal:
-		    - EmailServiceBundle\DefaultValues\DefaultValues
-		    - EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder
-		    - EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder\GenericTransportMessage
-		    - EmailServiceBundle\Transport\Impl\SwiftMailerTransport
-		    - EmailServiceBundle\Transport\TransportException
+			- EmailServiceBundle\DefaultValues\DefaultValues
+			- EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder
+			- EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder\GenericTransportMessage
+			- EmailServiceBundle\Transport\Impl\SwiftMailerTransport
+			- EmailServiceBundle\Transport\TransportException
 		classesAllowedToBeExtended:
-		    - EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder\GenericAttachmentAbstract
-		    - EmailServiceBundle\MessageBuilder\MessageBuilderAbstract
-		    - Hanaboso\Utils\Exception\PipesFrameworkExceptionAbstract
-		    - Symfony\Component\DependencyInjection\Extension\Extension
+			- EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder\GenericAttachmentAbstract
+			- EmailServiceBundle\MessageBuilder\MessageBuilderAbstract
+			- Hanaboso\Utils\Exception\PipesFrameworkExceptionAbstract
+			- Hanaboso\Utils\Enum\EnumAbstract
+			- Symfony\Component\DependencyInjection\Extension\Extension

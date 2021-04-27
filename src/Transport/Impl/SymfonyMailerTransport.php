@@ -2,6 +2,7 @@
 
 namespace EmailServiceBundle\Transport\Impl;
 
+use EmailServiceBundle\Enum\ContentTypeEnum;
 use EmailServiceBundle\Transport\TransportException;
 use EmailServiceBundle\Transport\TransportInterface;
 use EmailServiceBundle\Transport\TransportMessageInterface;
@@ -10,7 +11,6 @@ use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 use Symfony\Component\Mailer\Mailer;
 use Symfony\Component\Mime\Email;
-use Symfony\Component\Mime\Part\TextPart;
 use Throwable;
 
 /**
@@ -48,8 +48,11 @@ final class SymfonyMailerTransport implements TransportInterface
             ->from($message->getFrom())
             ->to($message->getTo());
 
-        $content = new TextPart($message->getContent(), 'utf-8', $message->getContentType());
-        $email->setBody($content);
+        if ($message->getContentType() === ContentTypeEnum::PLAIN) {
+            $email->text($message->getContent());
+        } else {
+            $email->html($message->getContent());
+        }
 
         if ($message->getContentAttachments()) {
             foreach ($message->getContentAttachments() as $contentAttachment) {
