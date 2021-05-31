@@ -42,7 +42,7 @@ class GenericTransportMessage implements TransportMessageInterface
         private string $to,
         private string $subject,
         private string $dataContent,
-        private ?string $template = NULL
+        private ?string $template = NULL,
     )
     {
         if (!$template) {

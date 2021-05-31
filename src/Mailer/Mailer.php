@@ -37,7 +37,7 @@ final class Mailer
             if (!$this->engine) {
                 throw new MailerException(
                     'Missing template engine. Can not render message.',
-                    MailerException::MISSING_TEMPLATE_ENGINE
+                    MailerException::MISSING_TEMPLATE_ENGINE,
                 );
             }
 
@@ -45,15 +45,15 @@ final class Mailer
                 $message->setContent(
                     $this->engine->render(
                         (string) $message->getTemplate(),
-                        $message->getDataContent()
-                    )
+                        $message->getDataContent(),
+                    ),
                 );
                 $this->transport->send($message);
             } catch (Throwable $e) {
                 throw new MailerException(
                     $e->getMessage(),
                     MailerException::TEMPLATE_ENGINE_ERROR,
-                    $e
+                    $e,
                 );
             }
         } else {
@@ -63,7 +63,7 @@ final class Mailer
                 throw new MailerException(
                     $e->getMessage(),
                     MailerException::TEMPLATE_ENGINE_ERROR,
-                    $e
+                    $e,
                 );
             }
         }
@@ -81,7 +81,7 @@ final class Mailer
             if (!$this->engine) {
                 throw new MailerException(
                     'Missing template engine. Can not render message.',
-                    MailerException::MISSING_TEMPLATE_ENGINE
+                    MailerException::MISSING_TEMPLATE_ENGINE,
                 );
             }
         }

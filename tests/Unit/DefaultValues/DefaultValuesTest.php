@@ -76,7 +76,7 @@ final class DefaultValuesTest extends TestCase
     public function testFrom(): void
     {
         $data     = Json::decode(
-            '{"to":"user2@hanaboso.com","subject":"Activate user account","content":"","dataContent":{"link":"127.0.0.4:8000\/user\/5a78840bd5a1d\/activate"},"template":null,"from":""}'
+            '{"to":"user2@hanaboso.com","subject":"Activate user account","content":"","dataContent":{"link":"127.0.0.4:8000\/user\/5a78840bd5a1d\/activate"},"template":null,"from":""}',
         );
         $defaults = new DefaultValues(['aa' => 'e-mail'], [], [], []);
         $default  = $defaults->getDefaults('aa');

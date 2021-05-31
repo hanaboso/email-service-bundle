@@ -59,7 +59,7 @@ final class SymfonyMailerTransport implements TransportInterface
                 $email->attach(
                     $contentAttachment->getContent(),
                     $contentAttachment->getFilename(),
-                    $contentAttachment->getContentType()
+                    $contentAttachment->getContentType(),
                 );
             }
         }
@@ -68,7 +68,7 @@ final class SymfonyMailerTransport implements TransportInterface
             'subject: %s, recipient: %s, datetime: %s.',
             $message->getSubject(),
             $message->getTo(),
-            date(DATE_ATOM)
+            date(DATE_ATOM),
         );
 
         try {

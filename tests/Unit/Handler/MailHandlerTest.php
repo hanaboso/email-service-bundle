@@ -42,7 +42,7 @@ final class MailHandlerTest extends TestCase
             [
                 'from'        => 'sender@gmail.com', 'to' => 'recipient@gmail.com', 'subject' => 'example',
                 'dataContent' => ['content'],
-            ]
+            ],
         );
 
         self::assertTrue(TRUE);
@@ -72,7 +72,7 @@ final class MailHandlerTest extends TestCase
             [
                 'from'        => 'sender@gmail.com', 'to' => 'recipient@gmail.com', 'subject' => 'example',
                 'dataContent' => ['content'],
-            ]
+            ],
         );
 
         self::assertTrue(TRUE);

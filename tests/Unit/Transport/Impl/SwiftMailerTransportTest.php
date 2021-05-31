@@ -32,7 +32,7 @@ final class SwiftMailerTransportTest extends TestCase
         $fakeMailer = $this->createPartialMock(Mailer::class, ['send']);
         $fakeMailer->method('send')->willReturnCallback(
             static function (): void {
-            }
+            },
         );
 
         $logger = $this->createPartialMock(Logger::class, ['info']);
@@ -63,7 +63,7 @@ final class SwiftMailerTransportTest extends TestCase
         $fakeMailer = $this->createPartialMock(Mailer::class, ['send']);
         $fakeMailer->method('send')->willReturnCallback(
             static function (): void {
-            }
+            },
         );
 
         $message = new GenericTransportMessage(
@@ -71,7 +71,7 @@ final class SwiftMailerTransportTest extends TestCase
             'no-reply@test.com',
             'Subject',
             'Content',
-            'Some/template.html.twig'
+            'Some/template.html.twig',
         );
         $mailer  = new SymfonyMailerTransport($fakeMailer);
         $mailer->send($message);

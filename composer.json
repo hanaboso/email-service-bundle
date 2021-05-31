@@ -1,13 +1,13 @@
 {
     "name": "hanaboso/email-service-bundle",
     "description": "Hanaboso - email-service-bundle",
-    "version": "1.2.1",
+    "version": "1.2.2",
     "license": "Apache-2.0",
     "require": {
         "php": "^8.0",
         "ext-iconv": "*",
         "hanaboso/commons-bundle": "^2.3",
-        "symfony/mailer": "^v5.2",
+        "symfony/mailer": "^v5.3",
         "symfony/monolog-bundle": "^v3.7",
         "twig/twig": "^v3.3"
     },

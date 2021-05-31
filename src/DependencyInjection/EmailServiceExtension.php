@@ -45,8 +45,8 @@ final class EmailServiceExtension extends Extension
                     __DIR__ . '/../Resources/config',
                     __DIR__ . '/../Resources/config/packages',
                     __DIR__ . '/../Resources/config/services',
-                ]
-            )
+                ],
+            ),
         );
 
         $loader->load('services.yaml');

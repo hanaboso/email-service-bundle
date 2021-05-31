@@ -27,7 +27,7 @@ class GenericMessageBuilder extends MessageBuilderAbstract
         if (!self::isValid($data)) {
             throw new MessageBuilderException(
                 sprintf('Invalid data. || %s', Json::encode($data)),
-                MessageBuilderException::INVALID_DATA
+                MessageBuilderException::INVALID_DATA,
             );
         }
 
@@ -42,7 +42,7 @@ class GenericMessageBuilder extends MessageBuilderAbstract
             $data['to'],
             $data['subject'],
             is_array($content) ? Json::encode($content) : $content,
-            $data['template'] ?? NULL
+            $data['template'] ?? NULL,
         );
     }
 

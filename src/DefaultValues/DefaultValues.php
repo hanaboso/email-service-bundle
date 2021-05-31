@@ -22,7 +22,7 @@ class DefaultValues
         protected array $from = [],
         protected array $subject = [],
         protected array $to = [],
-        protected array $bcc = []
+        protected array $bcc = [],
     )
     {
     }
@@ -108,7 +108,7 @@ class DefaultValues
     public static function handleDefaults(
         array $data,
         array $defaults,
-        array $fields = ['from', 'subject', 'to', 'bcc']
+        array $fields = ['from', 'subject', 'to', 'bcc'],
     ): array
     {
         foreach ($fields as $field) {

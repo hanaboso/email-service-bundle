@@ -41,7 +41,7 @@ final class MailBuildersLoader
         } else {
             throw new MailerException(
                 sprintf('MailerBuilder for [%s] was not found.', $builder),
-                MailerException::BUILDER_SERVICE_NOT_FOUND
+                MailerException::BUILDER_SERVICE_NOT_FOUND,
             );
         }
 

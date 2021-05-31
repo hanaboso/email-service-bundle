@@ -31,7 +31,7 @@ final class MailerTest extends TestCase
         $transport = $this->createPartialMock(TransportInterface::class, ['send', 'setLogger']);
         $transport->method('send')->willReturnCallback(
             static function (): void {
-            }
+            },
         );
         $transport->method('setLogger')->willReturn(1);
 
@@ -57,7 +57,7 @@ final class MailerTest extends TestCase
         $transport = $this->createPartialMock(TransportInterface::class, ['send', 'setLogger']);
         $transport->method('send')->willReturnCallback(
             static function (): void {
-            }
+            },
         );
         $transport->method('setLogger')->willReturn(1);
 
