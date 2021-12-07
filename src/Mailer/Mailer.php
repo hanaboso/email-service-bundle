@@ -44,7 +44,7 @@ final class Mailer
             try {
                 $message->setContent(
                     $this->engine->render(
-                        (string) $message->getTemplate(),
+                        $message->getTemplate(),
                         $message->getDataContent(),
                     ),
                 );

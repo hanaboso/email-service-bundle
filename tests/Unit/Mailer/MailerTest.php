@@ -33,7 +33,7 @@ final class MailerTest extends TestCase
             static function (): void {
             },
         );
-        $transport->method('setLogger')->willReturn(1);
+        $transport->method('setLogger')->willReturnCallback(static function (): void{});
 
         $data = [
             'from'    => 'valid@mail.com',
@@ -59,7 +59,7 @@ final class MailerTest extends TestCase
             static function (): void {
             },
         );
-        $transport->method('setLogger')->willReturn(1);
+        $transport->method('setLogger')->willReturnCallback(static function (): void{});
 
         $data = [
             'from'    => 'valid@mail.com',

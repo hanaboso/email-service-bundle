@@ -1,5 +1,6 @@
 # Exclude IDE
 .idea
+.DS_Store
 
 # Exclude temp files
 .env
