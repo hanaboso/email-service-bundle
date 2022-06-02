@@ -8,6 +8,7 @@ use EmailServiceBundle\Mailer\Mailer;
 use EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder;
 use EmailServiceBundle\Transport\Impl\SymfonyMailerTransport;
 use Exception;
+use Hanaboso\PhpCheckUtils\PhpUnit\Traits\CustomAssertTrait;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -17,6 +18,8 @@ use PHPUnit\Framework\TestCase;
  */
 final class MailHandlerTest extends TestCase
 {
+
+    use CustomAssertTrait;
 
     /**
      * @covers \EmailServiceBundle\Handler\MailHandler
@@ -45,7 +48,7 @@ final class MailHandlerTest extends TestCase
             ],
         );
 
-        self::assertTrue(TRUE);
+        self::assertFake();
     }
 
     /**
@@ -75,7 +78,7 @@ final class MailHandlerTest extends TestCase
             ],
         );
 
-        self::assertTrue(TRUE);
+        self::assertFake();
     }
 
 }

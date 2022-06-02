@@ -2,15 +2,15 @@
     "name": "hanaboso/email-service-bundle",
     "description": "Hanaboso - email-service-bundle",
     "license": "Apache-2.0",
-    "version": "1.2.7",
+    "version": "1.2.8",
     "require": {
-        "php": "^8.0",
+        "php": "^8.1",
         "ext-iconv": "*",
-        "hanaboso/commons-bundle": "^2.4",
-        "symfony/google-mailer": "^v6.0",
-        "symfony/mailer": "^v6.0",
-        "symfony/monolog-bundle": "^v3.7",
-        "twig/twig": "^v3.3"
+        "hanaboso/commons-bundle": "^2.5",
+        "symfony/google-mailer": "^v6.1",
+        "symfony/mailer": "^v6.1",
+        "symfony/monolog-bundle": "^v3.8",
+        "twig/twig": "^v3.4"
     },
     "require-dev": {
         "hanaboso/php-check-utils": "^1.4"

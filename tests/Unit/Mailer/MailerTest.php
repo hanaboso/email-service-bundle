@@ -10,6 +10,7 @@ use EmailServiceBundle\Transport\Impl\SymfonyMailerTransport;
 use EmailServiceBundle\Transport\TransportException;
 use EmailServiceBundle\Transport\TransportInterface;
 use Exception;
+use Hanaboso\PhpCheckUtils\PhpUnit\Traits\CustomAssertTrait;
 use PHPUnit\Framework\TestCase;
 use Twig\Environment;
 
@@ -20,6 +21,8 @@ use Twig\Environment;
  */
 final class MailerTest extends TestCase
 {
+
+    use CustomAssertTrait;
 
     /**
      * @covers \EmailServiceBundle\Mailer\Mailer
@@ -45,7 +48,7 @@ final class MailerTest extends TestCase
         $handler = new GenericMessageBuilder();
         $mailer  = new Mailer($transport, NULL);
         $mailer->renderAndSend($handler->buildTransportMessage($data));
-        self::assertTrue(TRUE);
+        self::assertFake();
     }
 
     /**
@@ -71,7 +74,7 @@ final class MailerTest extends TestCase
         $handler = new GenericMessageBuilder();
         $mailer  = new Mailer($transport, NULL);
         $mailer->renderAndSendTest($handler->buildTransportMessage($data));
-        self::assertTrue(TRUE);
+        self::assertFake();
     }
 
     /**
@@ -91,7 +94,7 @@ final class MailerTest extends TestCase
         $mailer = new Mailer($transport, $engine);
         $mailer->renderAndSend($message);
 
-        self::assertTrue(TRUE);
+        self::assertFake();
     }
 
     /**

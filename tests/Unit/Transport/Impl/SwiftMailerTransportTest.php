@@ -8,6 +8,7 @@ use EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder\GenericTranspor
 use EmailServiceBundle\Transport\Impl\SymfonyMailerTransport;
 use EmailServiceBundle\Transport\TransportException;
 use Exception;
+use Hanaboso\PhpCheckUtils\PhpUnit\Traits\CustomAssertTrait;
 use Monolog\Logger;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Mailer\Mailer;
@@ -19,6 +20,8 @@ use Symfony\Component\Mailer\Mailer;
  */
 final class SwiftMailerTransportTest extends TestCase
 {
+
+    use CustomAssertTrait;
 
     /**
      * @covers \EmailServiceBundle\Transport\Impl\SymfonyMailerTransport
@@ -48,7 +51,7 @@ final class SwiftMailerTransportTest extends TestCase
         $mailer = new SymfonyMailerTransport($fakeMailer);
         $mailer->setLogger($logger);
         $mailer->send($message);
-        self::assertTrue(TRUE);
+        self::assertFake();
     }
 
     /**
@@ -75,7 +78,7 @@ final class SwiftMailerTransportTest extends TestCase
         );
         $mailer  = new SymfonyMailerTransport($fakeMailer);
         $mailer->send($message);
-        self::assertTrue(TRUE);
+        self::assertFake();
     }
 
     /**
