@@ -2,15 +2,15 @@
     "name": "hanaboso/email-service-bundle",
     "description": "Hanaboso - email-service-bundle",
     "license": "Apache-2.0",
-    "version": "1.2.8",
+    "version": "1.2.9",
     "require": {
         "php": "^8.1",
         "ext-iconv": "*",
-        "hanaboso/commons-bundle": "^2.5",
-        "symfony/google-mailer": "^v6.1",
-        "symfony/mailer": "^v6.1",
+        "hanaboso/commons-bundle": "^2.7",
+        "symfony/google-mailer": "^v6.2",
+        "symfony/mailer": "^v6.2",
         "symfony/monolog-bundle": "^v3.8",
-        "twig/twig": "^v3.4"
+        "twig/twig": "^v3.5"
     },
     "require-dev": {
         "hanaboso/php-check-utils": "^1.4"
@@ -23,6 +23,12 @@
     "autoload-dev": {
         "psr-4": {
             "EmailServiceBundleTests\\": "tests/"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "ergebnis/composer-normalize": true
         }
     }
 }

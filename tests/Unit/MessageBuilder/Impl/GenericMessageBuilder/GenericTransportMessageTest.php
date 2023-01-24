@@ -5,6 +5,7 @@ namespace EmailServiceBundleTests\Unit\MessageBuilder\Impl\GenericMessageBuilder
 use EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder\GenericContentAttachment;
 use EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder\GenericFsAttachment;
 use EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder\GenericTransportMessage;
+use Hanaboso\PhpCheckUtils\PhpUnit\Traits\CustomAssertTrait;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -14,6 +15,8 @@ use PHPUnit\Framework\TestCase;
  */
 final class GenericTransportMessageTest extends TestCase
 {
+
+    use CustomAssertTrait;
 
     /**
      * @covers \EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder\GenericTransportMessage
@@ -41,10 +44,10 @@ final class GenericTransportMessageTest extends TestCase
         self::assertEquals('text/plain', $message->getContentType());
 
         $message->addFileStorageAttachment(new GenericFsAttachment('id', 'type', 'filename'));
-        self::assertNotEmpty($message->getFileStorageAttachments()[0]);
+        self::assertCount(1, $message->getFileStorageAttachments());
 
         $message->addContentAttachment(new GenericContentAttachment('content', 'type', 'filename'));
-        self::assertNotEmpty($message->getContentAttachments()[0]);
+        self::assertCount(1, $message->getContentAttachments());
     }
 
 }
