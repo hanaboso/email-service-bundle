@@ -15,5 +15,4 @@ parameters:
 			- EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder\GenericAttachmentAbstract
 			- EmailServiceBundle\MessageBuilder\MessageBuilderAbstract
 			- Hanaboso\Utils\Exception\PipesFrameworkExceptionAbstract
-			- Hanaboso\Utils\Enum\EnumAbstract
 			- Symfony\Component\DependencyInjection\Extension\Extension
