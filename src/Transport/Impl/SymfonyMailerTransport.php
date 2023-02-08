@@ -48,7 +48,7 @@ final class SymfonyMailerTransport implements TransportInterface
             ->from($message->getFrom())
             ->to($message->getTo());
 
-        if ($message->getContentType() === ContentTypeEnum::PLAIN) {
+        if ($message->getContentType() === ContentTypeEnum::PLAIN->value) {
             $email->text($message->getContent());
         } else {
             $email->html($message->getContent());
