@@ -103,7 +103,7 @@ class GenericTransportMessage implements TransportMessageInterface
      */
     public function getContentType(): string
     {
-        return $this->template ? ContentTypeEnum::HTML : ContentTypeEnum::PLAIN;
+        return $this->template ? ContentTypeEnum::HTML->value : ContentTypeEnum::PLAIN->value;
     }
 
     /**
