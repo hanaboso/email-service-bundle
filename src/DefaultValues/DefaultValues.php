@@ -91,10 +91,10 @@ class DefaultValues
     public function getDefaults(string $module): array
     {
         return [
+            'bcc' => $this->getBcc($module),
             'from' => $this->getFrom($module),
             'subject' => $this->getSubject($module),
             'to' => $this->getTo($module),
-            'bcc' => $this->getBcc($module),
         ];
     }
 

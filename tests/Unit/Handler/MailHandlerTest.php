@@ -43,8 +43,10 @@ final class MailHandlerTest extends TestCase
         $handler->send(
             '1',
             [
-                'from'        => 'sender@gmail.com', 'to' => 'recipient@gmail.com', 'subject' => 'example',
                 'dataContent' => ['content'],
+                'from'        => 'sender@gmail.com',
+                'subject' => 'example',
+                'to' => 'recipient@gmail.com',
             ],
         );
 
@@ -73,8 +75,10 @@ final class MailHandlerTest extends TestCase
         $handler->testSend(
             '1',
             [
-                'from'        => 'sender@gmail.com', 'to' => 'recipient@gmail.com', 'subject' => 'example',
                 'dataContent' => ['content'],
+                'from'        => 'sender@gmail.com',
+                'subject' => 'example',
+                'to' => 'recipient@gmail.com',
             ],
         );
 

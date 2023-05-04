@@ -21,10 +21,10 @@ final class GenericMessageBuilderTest extends TestCase
     public function testValid(): void
     {
         $data = [
-            'from'    => 'no-reply@test.com',
-            'to'      => 'no-reply@test.com',
-            'subject' => 'Subject',
             'content' => 'Content',
+            'from'    => 'no-reply@test.com',
+            'subject' => 'Subject',
+            'to'      => 'no-reply@test.com',
         ];
 
         self::assertTrue(GenericMessageBuilder::isValid($data));
@@ -36,10 +36,10 @@ final class GenericMessageBuilderTest extends TestCase
     public function testInvalid(): void
     {
         $data = [
-            'from'    => 'no-reply&test.com',
-            'to'      => 'no-reply@test.com',
-            'subject' => 'Subject',
             'content' => 'Content',
+            'from'    => 'no-reply&test.com',
+            'subject' => 'Subject',
+            'to'      => 'no-reply@test.com',
         ];
 
         self::assertFalse(GenericMessageBuilder::isValid($data));
@@ -53,10 +53,10 @@ final class GenericMessageBuilderTest extends TestCase
     public function testBuildTransportMessage(): void
     {
         $data = [
-            'from'    => 'no-reply@test.com',
-            'to'      => 'no-reply@test.com',
-            'subject' => 'Subject',
             'content' => ['link' => 'link'],
+            'from'    => 'no-reply@test.com',
+            'subject' => 'Subject',
+            'to'      => 'no-reply@test.com',
         ];
 
         $handler = new GenericMessageBuilder();
@@ -73,10 +73,10 @@ final class GenericMessageBuilderTest extends TestCase
     public function testBuildTransportMessageFails(): void
     {
         $data = [
-            'from'    => 'invalid$mail',
-            'to'      => 'no-reply@test.com',
-            'subject' => 'Subject',
             'content' => 'Content',
+            'from'    => 'invalid$mail',
+            'subject' => 'Subject',
+            'to'      => 'no-reply@test.com',
         ];
 
         $handler = new GenericMessageBuilder();
@@ -107,8 +107,8 @@ final class GenericMessageBuilderTest extends TestCase
 
         $data = [
             'from'    => 'no-reply@test.com',
-            'to'      => 'no-reply@test.com',
             'subject' => 'test',
+            'to'      => 'no-reply@test.com',
         ];
 
         self::assertFalse(GenericMessageBuilder::isValid($data));

@@ -39,10 +39,10 @@ final class MailerTest extends TestCase
         $transport->method('setLogger')->willReturnCallback(static function (): void{});
 
         $data = [
-            'from'    => 'valid@mail.com',
-            'to'      => 'no-reply@test.com',
-            'subject' => 'Subject',
             'content' => 'Content',
+            'from'    => 'valid@mail.com',
+            'subject' => 'Subject',
+            'to'      => 'no-reply@test.com',
         ];
 
         $handler = new GenericMessageBuilder();
@@ -65,10 +65,10 @@ final class MailerTest extends TestCase
         $transport->method('setLogger')->willReturnCallback(static function (): void{});
 
         $data = [
-            'from'    => 'valid@mail.com',
-            'to'      => 'no-reply@test.com',
-            'subject' => 'Subject',
             'content' => 'Content',
+            'from'    => 'valid@mail.com',
+            'subject' => 'Subject',
+            'to'      => 'no-reply@test.com',
         ];
 
         $handler = new GenericMessageBuilder();

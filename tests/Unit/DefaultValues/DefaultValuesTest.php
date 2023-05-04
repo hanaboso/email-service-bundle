@@ -27,12 +27,12 @@ final class DefaultValuesTest extends TestCase
     /**
      * @dataProvider emptyConstructor
      *
-     * @covers       \EmailServiceBundle\DefaultValues\DefaultValues::__construct()
-     * @covers       \EmailServiceBundle\DefaultValues\DefaultValues::getDefaults()
-     * @covers       \EmailServiceBundle\DefaultValues\DefaultValues::getFrom()
-     * @covers       \EmailServiceBundle\DefaultValues\DefaultValues::getSubject()
-     * @covers       \EmailServiceBundle\DefaultValues\DefaultValues::getTo()
-     * @covers       \EmailServiceBundle\DefaultValues\DefaultValues::getBcc()
+     * @covers       \EmailServiceBundle\DefaultValues\DefaultValues::__construct
+     * @covers       \EmailServiceBundle\DefaultValues\DefaultValues::getDefaults
+     * @covers       \EmailServiceBundle\DefaultValues\DefaultValues::getFrom
+     * @covers       \EmailServiceBundle\DefaultValues\DefaultValues::getSubject
+     * @covers       \EmailServiceBundle\DefaultValues\DefaultValues::getTo
+     * @covers       \EmailServiceBundle\DefaultValues\DefaultValues::getBcc
      *
      * @param string  $module
      * @param mixed[] $result
@@ -46,12 +46,12 @@ final class DefaultValuesTest extends TestCase
     /**
      * @dataProvider filledConstructor
      *
-     * @covers       \EmailServiceBundle\DefaultValues\DefaultValues::__construct()
-     * @covers       \EmailServiceBundle\DefaultValues\DefaultValues::getDefaults()
-     * @covers       \EmailServiceBundle\DefaultValues\DefaultValues::getBcc()
-     * @covers       \EmailServiceBundle\DefaultValues\DefaultValues::getFrom()
-     * @covers       \EmailServiceBundle\DefaultValues\DefaultValues::getSubject()
-     * @covers       \EmailServiceBundle\DefaultValues\DefaultValues::getTo()
+     * @covers       \EmailServiceBundle\DefaultValues\DefaultValues::__construct
+     * @covers       \EmailServiceBundle\DefaultValues\DefaultValues::getDefaults
+     * @covers       \EmailServiceBundle\DefaultValues\DefaultValues::getBcc
+     * @covers       \EmailServiceBundle\DefaultValues\DefaultValues::getFrom
+     * @covers       \EmailServiceBundle\DefaultValues\DefaultValues::getSubject
+     * @covers       \EmailServiceBundle\DefaultValues\DefaultValues::getTo
      *
      * @param mixed[] $data
      * @param string  $module
@@ -89,7 +89,7 @@ final class DefaultValuesTest extends TestCase
 
     /**
      * @dataProvider handleDefaults
-     * @covers       \EmailServiceBundle\DefaultValues\DefaultValues::handleDefaults()
+     * @covers       \EmailServiceBundle\DefaultValues\DefaultValues::handleDefaults
      *
      * @param mixed[] $data
      * @param mixed[] $defaults
@@ -105,7 +105,7 @@ final class DefaultValuesTest extends TestCase
     /**
      * @return mixed[]
      */
-    public function handleDefaults(): array
+    public static function handleDefaults(): array
     {
         return [
             [
@@ -139,7 +139,7 @@ final class DefaultValuesTest extends TestCase
     /**
      * @return mixed[]
      */
-    public function filledConstructor(): array
+    public static function filledConstructor(): array
     {
         return [
             [
@@ -163,7 +163,7 @@ final class DefaultValuesTest extends TestCase
     /**
      * @return mixed[]
      */
-    public function emptyConstructor(): array
+    public static function emptyConstructor(): array
     {
         return [
             ['foo', ['from' => NULL, 'subject' => NULL, 'to' => NULL, 'bcc' => NULL]],
