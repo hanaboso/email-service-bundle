@@ -1,17 +1,15 @@
 version: '3'
 services:
     app:
-        image: hanabosocom/php-dev:php-8.2-alpine
+        image: hanabosocom/php-dev:php-8.3-alpine
         user: ${DEV_UID}:${DEV_GID}
         volumes:
             - ./:/var/www:cached
-            - ${SSH_AUTH}:/tmp/.ssh-auth-sock
             - ${HOME}/dev/.composer:${HOME}/dev/.composer:cached
         environment:
             - APP_ENV=dev
             - DEV_UID=${DEV_UID}
             - DEV_GID=${DEV_GID}
-            - PHP_IDE_CONFIG=${PHP_IDE_CONFIG}
             - COMPOSER_HOME=${HOME}/dev/.composer
             - SMTP_TRANSPORT=${SMTP_TRANSPORT}
             - SMTP_HOST=${SMTP_HOST}
