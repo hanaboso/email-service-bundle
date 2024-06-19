@@ -3,6 +3,7 @@
 namespace EmailServiceBundleTests\Unit\MessageBuilder\Impl\GenericMessageBuilder;
 
 use EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder\GenericFsAttachment;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -10,12 +11,12 @@ use PHPUnit\Framework\TestCase;
  *
  * @package EmailServiceBundleTests\Unit\MessageBuilder\Impl\GenericMessageBuilder
  */
+#[CoversClass(GenericFsAttachment::class)]
 final class GenericFsAttachmentTest extends TestCase
 {
 
     /**
-     * @covers \EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder\GenericFsAttachment
-     * @covers \EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder\GenericFsAttachment::getId
+     * @return void
      */
     public function testAttachment(): void
     {

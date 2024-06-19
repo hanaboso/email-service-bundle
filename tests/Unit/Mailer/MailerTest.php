@@ -11,6 +11,7 @@ use EmailServiceBundle\Transport\TransportException;
 use EmailServiceBundle\Transport\TransportInterface;
 use Exception;
 use Hanaboso\PhpCheckUtils\PhpUnit\Traits\CustomAssertTrait;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 use Twig\Environment;
 
@@ -19,14 +20,13 @@ use Twig\Environment;
  *
  * @package EmailServiceBundleTests\Unit\Mailer
  */
+#[CoversClass(Mailer::class)]
 final class MailerTest extends TestCase
 {
 
     use CustomAssertTrait;
 
     /**
-     * @covers \EmailServiceBundle\Mailer\Mailer
-     * @covers \EmailServiceBundle\Mailer\Mailer::renderAndSend
      * @throws Exception
      */
     public function testSend(): void
@@ -52,7 +52,6 @@ final class MailerTest extends TestCase
     }
 
     /**
-     * @covers \EmailServiceBundle\Mailer\Mailer::renderAndSendTest
      * @throws Exception
      */
     public function testSendTest(): void
@@ -78,8 +77,6 @@ final class MailerTest extends TestCase
     }
 
     /**
-     * @covers \EmailServiceBundle\Mailer\Mailer::renderAndSend
-     *
      * @throws MailerException
      */
     public function testRenderAndSend(): void
@@ -98,8 +95,6 @@ final class MailerTest extends TestCase
     }
 
     /**
-     * @covers \EmailServiceBundle\Mailer\Mailer::renderAndSend
-     *
      * @throws MailerException
      */
     public function testRenderAndSendErr(): void
@@ -114,8 +109,6 @@ final class MailerTest extends TestCase
     }
 
     /**
-     * @covers \EmailServiceBundle\Mailer\Mailer::renderAndSend
-     *
      * @throws MailerException
      */
     public function testRenderAndSendErr2(): void
@@ -133,8 +126,6 @@ final class MailerTest extends TestCase
     }
 
     /**
-     * @covers \EmailServiceBundle\Mailer\Mailer::renderAndSend
-     *
      * @throws MailerException
      */
     public function testRenderAndSendErr3(): void
@@ -151,8 +142,6 @@ final class MailerTest extends TestCase
     }
 
     /**
-     * @covers \EmailServiceBundle\Mailer\Mailer::renderAndSendTest
-     *
      * @throws MailerException
      */
     public function testRenderAndSendTest(): void

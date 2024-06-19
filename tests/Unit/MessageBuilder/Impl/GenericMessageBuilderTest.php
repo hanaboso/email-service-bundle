@@ -5,6 +5,7 @@ namespace EmailServiceBundleTests\Unit\MessageBuilder\Impl;
 use EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder;
 use EmailServiceBundle\MessageBuilder\MessageBuilderException;
 use Exception;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -12,11 +13,12 @@ use PHPUnit\Framework\TestCase;
  *
  * @package EmailServiceBundleTests\Unit\MessageBuilder\Impl
  */
+#[CoversClass(GenericMessageBuilder::class)]
 final class GenericMessageBuilderTest extends TestCase
 {
 
     /**
-     * @covers \EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder::isValid
+     * @return void
      */
     public function testValid(): void
     {
@@ -31,7 +33,7 @@ final class GenericMessageBuilderTest extends TestCase
     }
 
     /**
-     * @covers \EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder::isValid
+     * @return void
      */
     public function testInvalid(): void
     {
@@ -46,8 +48,6 @@ final class GenericMessageBuilderTest extends TestCase
     }
 
     /**
-     * @covers \EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder::buildTransportMessage
-     *
      * @throws Exception
      */
     public function testBuildTransportMessage(): void
@@ -66,8 +66,6 @@ final class GenericMessageBuilderTest extends TestCase
     }
 
     /**
-     * @covers \EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder::buildTransportMessage
-     *
      * @throws Exception
      */
     public function testBuildTransportMessageFails(): void
@@ -88,7 +86,7 @@ final class GenericMessageBuilderTest extends TestCase
     }
 
     /**
-     * @covers \EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder::isValid
+     * @return void
      */
     public function testIsValid(): void
     {

@@ -10,6 +10,7 @@ use EmailServiceBundle\Transport\TransportException;
 use Exception;
 use Hanaboso\PhpCheckUtils\PhpUnit\Traits\CustomAssertTrait;
 use Monolog\Logger;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Mailer\Mailer;
 
@@ -18,16 +19,13 @@ use Symfony\Component\Mailer\Mailer;
  *
  * @package EmailServiceBundleTests\Unit\Transport\Impl
  */
+#[CoversClass(SymfonyMailerTransport::class)]
 final class SwiftMailerTransportTest extends TestCase
 {
 
     use CustomAssertTrait;
 
     /**
-     * @covers \EmailServiceBundle\Transport\Impl\SymfonyMailerTransport
-     * @covers \EmailServiceBundle\Transport\Impl\SymfonyMailerTransport::setLogger
-     * @covers \EmailServiceBundle\Transport\Impl\SymfonyMailerTransport::send
-     *
      * @throws Exception
      */
     public function testSend(): void
@@ -55,10 +53,6 @@ final class SwiftMailerTransportTest extends TestCase
     }
 
     /**
-     * @covers \EmailServiceBundle\Transport\Impl\SymfonyMailerTransport
-     * @covers \EmailServiceBundle\Transport\Impl\SymfonyMailerTransport::setLogger
-     * @covers \EmailServiceBundle\Transport\Impl\SymfonyMailerTransport::send
-     *
      * @throws Exception
      */
     public function testSendHtml(): void
@@ -82,7 +76,7 @@ final class SwiftMailerTransportTest extends TestCase
     }
 
     /**
-     * @covers \EmailServiceBundle\Transport\Impl\SymfonyMailerTransport::send
+     * @return void
      */
     public function testSendErr(): void
     {

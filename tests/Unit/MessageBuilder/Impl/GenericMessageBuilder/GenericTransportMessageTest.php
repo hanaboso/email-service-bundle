@@ -6,6 +6,7 @@ use EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder\GenericContentA
 use EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder\GenericFsAttachment;
 use EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder\GenericTransportMessage;
 use Hanaboso\PhpCheckUtils\PhpUnit\Traits\CustomAssertTrait;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -13,22 +14,14 @@ use PHPUnit\Framework\TestCase;
  *
  * @package EmailServiceBundleTests\Unit\MessageBuilder\Impl\GenericMessageBuilder
  */
+#[CoversClass(GenericTransportMessage::class)]
 final class GenericTransportMessageTest extends TestCase
 {
 
     use CustomAssertTrait;
 
     /**
-     * @covers \EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder\GenericTransportMessage
-     * @covers \EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder\GenericTransportMessage::getFrom
-     * @covers \EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder\GenericTransportMessage::getTo
-     * @covers \EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder\GenericTransportMessage::getDataContent
-     * @covers \EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder\GenericTransportMessage::getContentType
-     * @covers \EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder\GenericTransportMessage::setContent
-     * @covers \EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder\GenericTransportMessage::getContentAttachments
-     * @covers \EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder\GenericTransportMessage::addContentAttachment
-     * @covers \EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder\GenericTransportMessage::getFileStorageAttachments
-     * @covers \EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder\GenericTransportMessage::addFileStorageAttachment
+     * @return void
      */
     public function testTransport(): void
     {

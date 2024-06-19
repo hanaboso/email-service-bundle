@@ -3,6 +3,7 @@
 namespace EmailServiceBundleTests\Unit\MessageBuilder\Impl\GenericMessageBuilder;
 
 use EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder\GenericContentAttachment;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -10,15 +11,12 @@ use PHPUnit\Framework\TestCase;
  *
  * @package EmailServiceBundleTests\Unit\MessageBuilder\Impl\GenericMessageBuilder
  */
+#[CoversClass(GenericContentAttachment::class)]
 final class GenericContentAttachmentTest extends TestCase
 {
 
     /**
-     * @covers \EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder\GenericContentAttachment
-     * @covers \EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder\GenericAttachmentAbstract
-     * @covers \EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder\GenericAttachmentAbstract::getContentType
-     * @covers \EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder\GenericAttachmentAbstract::getFilename
-     * @covers \EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder\GenericContentAttachment::getContent
+     * @return void
      */
     public function testAttachment(): void
     {

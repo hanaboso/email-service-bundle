@@ -4,6 +4,8 @@ namespace EmailServiceBundleTests\Unit\DefaultValues;
 
 use EmailServiceBundle\DefaultValues\DefaultValues;
 use Hanaboso\Utils\String\Json;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -11,6 +13,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @package EmailServiceBundleTests\Unit\DefaultValues
  */
+#[CoversClass(DefaultValues::class)]
 final class DefaultValuesTest extends TestCase
 {
 
@@ -25,18 +28,10 @@ final class DefaultValuesTest extends TestCase
     ];
 
     /**
-     * @dataProvider emptyConstructor
-     *
-     * @covers       \EmailServiceBundle\DefaultValues\DefaultValues::__construct
-     * @covers       \EmailServiceBundle\DefaultValues\DefaultValues::getDefaults
-     * @covers       \EmailServiceBundle\DefaultValues\DefaultValues::getFrom
-     * @covers       \EmailServiceBundle\DefaultValues\DefaultValues::getSubject
-     * @covers       \EmailServiceBundle\DefaultValues\DefaultValues::getTo
-     * @covers       \EmailServiceBundle\DefaultValues\DefaultValues::getBcc
-     *
      * @param string  $module
      * @param mixed[] $result
      */
+    #[DataProvider('emptyConstructor')]
     public function testEmptyConstruct(string $module, array $result): void
     {
         $default = new DefaultValues();
@@ -44,19 +39,11 @@ final class DefaultValuesTest extends TestCase
     }
 
     /**
-     * @dataProvider filledConstructor
-     *
-     * @covers       \EmailServiceBundle\DefaultValues\DefaultValues::__construct
-     * @covers       \EmailServiceBundle\DefaultValues\DefaultValues::getDefaults
-     * @covers       \EmailServiceBundle\DefaultValues\DefaultValues::getBcc
-     * @covers       \EmailServiceBundle\DefaultValues\DefaultValues::getFrom
-     * @covers       \EmailServiceBundle\DefaultValues\DefaultValues::getSubject
-     * @covers       \EmailServiceBundle\DefaultValues\DefaultValues::getTo
-     *
      * @param mixed[] $data
      * @param string  $module
      * @param mixed[] $result
      */
+    #[DataProvider('filledConstructor')]
     public function testFilledConstructor(array $data, string $module, array $result): void
     {
         [$from, $subject, $to, $bcc] = $data;
@@ -66,12 +53,7 @@ final class DefaultValuesTest extends TestCase
     }
 
     /**
-     * @covers \EmailServiceBundle\DefaultValues\DefaultValues::getDefaults
-     * @covers \EmailServiceBundle\DefaultValues\DefaultValues::handleDefaults
-     * @covers \EmailServiceBundle\DefaultValues\DefaultValues::getSubject
-     * @covers \EmailServiceBundle\DefaultValues\DefaultValues::getTo
-     * @covers \EmailServiceBundle\DefaultValues\DefaultValues::getBcc
-     * @covers \EmailServiceBundle\DefaultValues\DefaultValues::getFrom
+     * @return void
      */
     public function testFrom(): void
     {
@@ -88,14 +70,12 @@ final class DefaultValuesTest extends TestCase
     }
 
     /**
-     * @dataProvider handleDefaults
-     * @covers       \EmailServiceBundle\DefaultValues\DefaultValues::handleDefaults
-     *
      * @param mixed[] $data
      * @param mixed[] $defaults
      * @param mixed[] $fields
      * @param mixed[] $result
      */
+    #[DataProvider('handleDefaults')]
     public function testHandleDefaults(array $data, array $defaults, array $fields, array $result): void
     {
         $defaultData = DefaultValues::handleDefaults($data, $defaults, $fields);

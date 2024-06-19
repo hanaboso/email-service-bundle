@@ -7,6 +7,7 @@ use EmailServiceBundle\Exception\MailerException;
 use EmailServiceBundle\Handler\MailHandler;
 use Exception;
 use Monolog\Logger;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -15,13 +16,11 @@ use Symfony\Component\HttpFoundation\Request;
  *
  * @package EmailServiceBundleTests\Controller
  */
+#[CoversClass(ApiController::class)]
 final class ApiControllerTest extends TestCase
 {
 
     /**
-     * @covers \EmailServiceBundle\Controller\ApiController
-     * @covers \EmailServiceBundle\Controller\ApiController::sendAction
-     *
      * @throws Exception
      */
     public function testSend(): void
@@ -37,8 +36,6 @@ final class ApiControllerTest extends TestCase
     }
 
     /**
-     * @covers \EmailServiceBundle\Controller\ApiController::sendAction
-     *
      * @throws Exception
      */
     public function testSendErr(): void
@@ -54,8 +51,6 @@ final class ApiControllerTest extends TestCase
     }
 
     /**
-     * @covers \EmailServiceBundle\Controller\ApiController::sendTestAction
-     *
      * @throws Exception
      */
     public function testSendTest(): void
@@ -71,8 +66,6 @@ final class ApiControllerTest extends TestCase
     }
 
     /**
-     * @covers \EmailServiceBundle\Controller\ApiController::sendTestAction
-     *
      * @throws Exception
      */
     public function testSendTestErr(): void
