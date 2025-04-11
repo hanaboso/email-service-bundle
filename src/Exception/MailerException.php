@@ -12,10 +12,10 @@ use Hanaboso\Utils\Exception\PipesFrameworkExceptionAbstract;
 final class MailerException extends PipesFrameworkExceptionAbstract
 {
 
-    public const MISSING_TEMPLATE_ENGINE   = self::OFFSET + 1;
-    public const BUILDER_SERVICE_NOT_FOUND = self::OFFSET + 2;
-    public const TEMPLATE_ENGINE_ERROR     = self::OFFSET + 3;
+    public const int MISSING_TEMPLATE_ENGINE   = self::OFFSET + 1;
+    public const int BUILDER_SERVICE_NOT_FOUND = self::OFFSET + 2;
+    public const int TEMPLATE_ENGINE_ERROR     = self::OFFSET + 3;
 
-    protected const OFFSET = 700;
+    protected const int OFFSET = 700;
 
 }

@@ -12,8 +12,8 @@ use Hanaboso\Utils\Exception\PipesFrameworkExceptionAbstract;
 class TransportException extends PipesFrameworkExceptionAbstract
 {
 
-    public const SEND_FAILED = self::OFFSET + 1;
+    public const int SEND_FAILED = self::OFFSET + 1;
 
-    protected const OFFSET = 600;
+    protected const int OFFSET = 600;
 
 }

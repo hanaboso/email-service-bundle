@@ -28,13 +28,13 @@ final class GenericTransportMessageTest extends TestCase
         $message = new GenericTransportMessage('sender@example.com', 'recipient@example.com', 'test', 'dataContent');
         $message->setContent('content');
 
-        self::assertEquals('sender@example.com', $message->getFrom());
-        self::assertEquals('recipient@example.com', $message->getTo());
-        self::assertEquals('test', $message->getSubject());
+        self::assertSame('sender@example.com', $message->getFrom());
+        self::assertSame('recipient@example.com', $message->getTo());
+        self::assertSame('test', $message->getSubject());
         self::assertEquals('dataContent', $message->getDataContent());
-        self::assertEquals('content', $message->getContent());
+        self::assertSame('content', $message->getContent());
         self::assertEquals(NULL, $message->getTemplate());
-        self::assertEquals('text/plain', $message->getContentType());
+        self::assertSame('text/plain', $message->getContentType());
 
         $message->addFileStorageAttachment(new GenericFsAttachment('id', 'type', 'filename'));
         self::assertCount(1, $message->getFileStorageAttachments());

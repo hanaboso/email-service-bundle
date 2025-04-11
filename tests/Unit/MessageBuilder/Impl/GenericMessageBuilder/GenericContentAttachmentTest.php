@@ -22,9 +22,9 @@ final class GenericContentAttachmentTest extends TestCase
     {
         $attachment = new GenericContentAttachment('content', 'type', 'filename');
 
-        self::assertEquals('content', $attachment->getContent());
-        self::assertEquals('type', $attachment->getContentType());
-        self::assertEquals('filename', $attachment->getFilename());
+        self::assertSame('content', $attachment->getContent());
+        self::assertSame('type', $attachment->getContentType());
+        self::assertSame('filename', $attachment->getFilename());
     }
 
 }

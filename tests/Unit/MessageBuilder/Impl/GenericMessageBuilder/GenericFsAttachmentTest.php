@@ -22,7 +22,7 @@ final class GenericFsAttachmentTest extends TestCase
     {
         $attachment = new GenericFsAttachment('id', 'type', 'filename');
 
-        self::assertEquals('id', $attachment->getId());
+        self::assertSame('id', $attachment->getId());
     }
 
 }

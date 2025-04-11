@@ -2,7 +2,6 @@ includes:
 	- vendor/hanaboso/php-check-utils/phpstan.neon # hanaboso rules
 
 parameters:
-	excludes_analyse:
 	ignoreErrors:
 	-
 		identifier: missingType.generics

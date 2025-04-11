@@ -12,8 +12,8 @@ use Hanaboso\Utils\Exception\PipesFrameworkExceptionAbstract;
 final class MessageBuilderException extends PipesFrameworkExceptionAbstract
 {
 
-    public const INVALID_DATA = self::OFFSET + 1;
+    public const int INVALID_DATA = self::OFFSET + 1;
 
-    protected const OFFSET = 500;
+    protected const int OFFSET = 500;
 
 }

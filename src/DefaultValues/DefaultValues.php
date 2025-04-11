@@ -112,7 +112,7 @@ class DefaultValues
     ): array
     {
         foreach ($fields as $field) {
-            if ((!array_key_exists($field, $data) || empty($data[$field])) && $defaults[$field]) {
+            if ((!array_key_exists($field, $data) || $data[$field] === '') && $defaults[$field]) {
                 $data[$field] = $defaults[$field];
             }
         }

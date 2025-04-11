@@ -31,7 +31,7 @@ final class ApiControllerTest extends TestCase
 
         $response = $controller->sendAction($request, 'generic');
 
-        self::assertEquals(200, $response->getStatusCode());
+        self::assertSame(200, $response->getStatusCode());
         self::assertEquals('{"status":"OK"}', $response->getContent());
     }
 
@@ -47,7 +47,7 @@ final class ApiControllerTest extends TestCase
         $request = new Request([], [], [], [], [], [], '{"abc": "def"}');
 
         $response = $controller->sendAction($request, 'generic');
-        self::assertEquals(500, $response->getStatusCode());
+        self::assertSame(500, $response->getStatusCode());
     }
 
     /**
@@ -61,7 +61,7 @@ final class ApiControllerTest extends TestCase
 
         $response = $controller->sendTestAction($request, 'generic');
 
-        self::assertEquals(200, $response->getStatusCode());
+        self::assertSame(200, $response->getStatusCode());
         self::assertEquals('{"status":"OK"}', $response->getContent());
     }
 
@@ -77,7 +77,7 @@ final class ApiControllerTest extends TestCase
         $request = new Request([], [], [], [], [], [], '{"abc": "def"}');
 
         $response = $controller->sendTestAction($request, 'generic');
-        self::assertEquals(500, $response->getStatusCode());
+        self::assertSame(500, $response->getStatusCode());
     }
 
 }
