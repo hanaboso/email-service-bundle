@@ -5,6 +5,7 @@ namespace EmailServiceBundleTests\Unit\Loader;
 use EmailServiceBundle\Exception\MailerException;
 use EmailServiceBundle\Loader\MailBuildersLoader;
 use EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\DependencyInjection\ServiceLocator;
@@ -14,6 +15,7 @@ use Symfony\Component\DependencyInjection\ServiceLocator;
  *
  * @package EmailServiceBundleTests\Unit\Loader
  */
+#[AllowMockObjectsWithoutExpectations]
 #[CoversClass(MailBuildersLoader::class)]
 final class MailBuildersLoaderTest extends TestCase
 {

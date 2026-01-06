@@ -10,6 +10,7 @@ use EmailServiceBundle\Transport\TransportException;
 use Exception;
 use Hanaboso\PhpCheckUtils\PhpUnit\Traits\CustomAssertTrait;
 use Monolog\Logger;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Mailer\Mailer;
@@ -19,6 +20,7 @@ use Symfony\Component\Mailer\Mailer;
  *
  * @package EmailServiceBundleTests\Unit\Transport\Impl
  */
+#[AllowMockObjectsWithoutExpectations]
 #[CoversClass(SymfonyMailerTransport::class)]
 final class SwiftMailerTransportTest extends TestCase
 {
