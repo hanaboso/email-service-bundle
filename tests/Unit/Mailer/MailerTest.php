@@ -11,6 +11,7 @@ use EmailServiceBundle\Transport\TransportException;
 use EmailServiceBundle\Transport\TransportInterface;
 use Exception;
 use Hanaboso\PhpCheckUtils\PhpUnit\Traits\CustomAssertTrait;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 use Twig\Environment;
@@ -20,6 +21,7 @@ use Twig\Environment;
  *
  * @package EmailServiceBundleTests\Unit\Mailer
  */
+#[AllowMockObjectsWithoutExpectations]
 #[CoversClass(Mailer::class)]
 final class MailerTest extends TestCase
 {

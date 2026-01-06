@@ -9,6 +9,7 @@ use EmailServiceBundle\MessageBuilder\Impl\GenericMessageBuilder;
 use EmailServiceBundle\Transport\Impl\SymfonyMailerTransport;
 use Exception;
 use Hanaboso\PhpCheckUtils\PhpUnit\Traits\CustomAssertTrait;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
@@ -17,6 +18,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @package EmailServiceBundleTests\Unit\Handler
  */
+#[AllowMockObjectsWithoutExpectations]
 #[CoversClass(MailHandler::class)]
 final class MailHandlerTest extends TestCase
 {
