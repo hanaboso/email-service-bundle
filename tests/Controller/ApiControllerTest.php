@@ -7,6 +7,7 @@ use EmailServiceBundle\Exception\MailerException;
 use EmailServiceBundle\Handler\MailHandler;
 use Exception;
 use Monolog\Logger;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,6 +17,7 @@ use Symfony\Component\HttpFoundation\Request;
  *
  * @package EmailServiceBundleTests\Controller
  */
+#[AllowMockObjectsWithoutExpectations]
 #[CoversClass(ApiController::class)]
 final class ApiControllerTest extends TestCase
 {
