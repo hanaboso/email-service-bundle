@@ -85,11 +85,11 @@ final class MailerTest extends TestCase
     {
         $transport = self::createMock(SymfonyMailerTransport::class);
         $message   = self::createPartialMock(GenericTransportMessage::class, ['getTemplate', 'getDataContent']);
-        $message->expects(self::any())->method('getTemplate')->willReturn('template');
-        $message->expects(self::any())->method('getDataContent')->willReturn(['data']);
+        $message->method('getTemplate')->willReturn('template');
+        $message->method('getDataContent')->willReturn(['data']);
 
         $engine = self::createPartialMock(Environment::class, ['render']);
-        $engine->expects(self::any())->method('render')->willReturn('render');
+        $engine->method('render')->willReturn('render');
         $mailer = new Mailer($transport, $engine);
         $mailer->renderAndSend($message);
 
@@ -103,7 +103,7 @@ final class MailerTest extends TestCase
     {
         $transport = self::createMock(SymfonyMailerTransport::class);
         $message   = self::createPartialMock(GenericTransportMessage::class, ['getTemplate']);
-        $message->expects(self::any())->method('getTemplate')->willReturn('template');
+        $message->method('getTemplate')->willReturn('template');
 
         $mailer = new Mailer($transport, NULL);
         self::expectException(MailerException::class);
@@ -116,15 +116,21 @@ final class MailerTest extends TestCase
     public function testRenderAndSendErr2(): void
     {
         $transport = self::createPartialMock(SymfonyMailerTransport::class, ['send']);
-        $transport->expects(self::any())->method('send')->willThrowException(new TransportException());
-        $message = self::createPartialMock(GenericTransportMessage::class, ['getTemplate']);
-        $message->expects(self::any())->method('getTemplate')->willReturn('template');
+        $transport->expects(self::once())->method('send')->willThrowException(new TransportException());
+        $message = self::createPartialMock(GenericTransportMessage::class, ['getTemplate', 'getDataContent']);
+        $message->method('getTemplate')->willReturn('template');
+        $message->method('getDataContent')->willReturn([]);
 
         $engine = self::createPartialMock(Environment::class, ['render']);
+        $engine->method('render')->willReturn('render');
         $mailer = new Mailer($transport, $engine);
 
-        self::expectException(MailerException::class);
-        $mailer->renderAndSend($message);
+        try {
+            $mailer->renderAndSend($message);
+            self::fail('MailerException was not thrown.');
+        } catch (MailerException $e) {
+            self::assertInstanceOf(TransportException::class, $e->getPrevious());
+        }
     }
 
     /**
@@ -133,9 +139,9 @@ final class MailerTest extends TestCase
     public function testRenderAndSendErr3(): void
     {
         $transport = self::createPartialMock(SymfonyMailerTransport::class, ['send']);
-        $transport->expects(self::any())->method('send')->willThrowException(new TransportException());
+        $transport->method('send')->willThrowException(new TransportException());
         $message = self::createPartialMock(GenericTransportMessage::class, ['getTemplate']);
-        $message->expects(self::any())->method('getTemplate')->willReturn(NULL);
+        $message->method('getTemplate')->willReturn(NULL);
 
         $mailer = new Mailer($transport, NULL);
 
@@ -150,7 +156,7 @@ final class MailerTest extends TestCase
     {
         $transport = self::createMock(SymfonyMailerTransport::class);
         $message   = self::createPartialMock(GenericTransportMessage::class, ['getTemplate']);
-        $message->expects(self::any())->method('getTemplate')->willReturn('template');
+        $message->method('getTemplate')->willReturn('template');
         $mailer = new Mailer($transport, NULL);
 
         self::expectException(MailerException::class);

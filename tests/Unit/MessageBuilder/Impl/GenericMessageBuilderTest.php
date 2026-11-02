@@ -62,7 +62,10 @@ final class GenericMessageBuilderTest extends TestCase
         $handler = new GenericMessageBuilder();
         $message = $handler->buildTransportMessage($data);
 
-        self::assertNotEmpty($message);
+        self::assertSame('no-reply@test.com', $message->getFrom());
+        self::assertSame('no-reply@test.com', $message->getTo());
+        self::assertSame('Subject', $message->getSubject());
+        self::assertSame('link', $message->getContent());
     }
 
     /**
