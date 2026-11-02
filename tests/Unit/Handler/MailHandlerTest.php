@@ -34,7 +34,7 @@ final class MailHandlerTest extends TestCase
         $transport->method('send');
         $mailer        = new Mailer($transport);
         $builderLoader = self::createPartialMock(MailBuildersLoader::class, ['getBuilder']);
-        $builderLoader->expects(self::any())->method('getBuilder')->willReturn(new GenericMessageBuilder());
+        $builderLoader->method('getBuilder')->willReturn(new GenericMessageBuilder());
         $handler = new MailHandler($mailer, $builderLoader);
 
         $handler->send(
@@ -59,7 +59,7 @@ final class MailHandlerTest extends TestCase
         $transport->method('send');
         $mailer        = new Mailer($transport);
         $builderLoader = self::createPartialMock(MailBuildersLoader::class, ['getBuilder']);
-        $builderLoader->expects(self::any())->method('getBuilder')->willReturn(new GenericMessageBuilder());
+        $builderLoader->method('getBuilder')->willReturn(new GenericMessageBuilder());
         $handler = new MailHandler($mailer, $builderLoader);
 
         $handler->testSend(
