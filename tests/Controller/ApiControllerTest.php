@@ -43,7 +43,7 @@ final class ApiControllerTest extends TestCase
     public function testSendErr(): void
     {
         $mailHandler = $this->createPartialMock(MailHandler::class, ['send']);
-        $mailHandler->expects(self::any())->method('send')->willThrowException(new MailerException());
+        $mailHandler->method('send')->willThrowException(new MailerException());
         $controller = new ApiController($mailHandler);
         $controller->setLogger(new Logger('logger'));
         $request = new Request([], [], [], [], [], [], '{"abc": "def"}');
@@ -73,7 +73,7 @@ final class ApiControllerTest extends TestCase
     public function testSendTestErr(): void
     {
         $mailHandler = $this->createPartialMock(MailHandler::class, ['testSend']);
-        $mailHandler->expects(self::any())->method('testSend')->willThrowException(new MailerException());
+        $mailHandler->method('testSend')->willThrowException(new MailerException());
         $controller = new ApiController($mailHandler);
         $controller->setLogger(new Logger('logger'));
         $request = new Request([], [], [], [], [], [], '{"abc": "def"}');

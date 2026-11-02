@@ -26,8 +26,8 @@ final class MailBuildersLoaderTest extends TestCase
     public function testGetBuilder(): void
     {
         $locator = self::createPartialMock(ServiceLocator::class, ['has', 'get']);
-        $locator->expects(self::any())->method('has')->willReturn(TRUE);
-        $locator->expects(self::any())->method('get')->willReturn(new GenericMessageBuilder());
+        $locator->method('has')->willReturn(TRUE);
+        $locator->method('get')->willReturn(new GenericMessageBuilder());
         $loader = new MailBuildersLoader($locator);
 
         self::assertInstanceOf(GenericMessageBuilder::class, $loader->getBuilder('1'));
@@ -39,7 +39,7 @@ final class MailBuildersLoaderTest extends TestCase
     public function testGetBuilderErr(): void
     {
         $locator = self::createPartialMock(ServiceLocator::class, ['has']);
-        $locator->expects(self::any())->method('has')->willReturn(FALSE);
+        $locator->method('has')->willReturn(FALSE);
         $loader = new MailBuildersLoader($locator);
 
         self::expectException(MailerException::class);
